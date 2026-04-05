@@ -113,18 +113,22 @@ def select_dinners(pool, days, ingredient_map, recipes_by_id,
     """
     Select 7 dinners satisfying nutritional minimums.
     Prevents consecutive same-protein days.
-    Returns list of (day, recipeId) or None if constraints unsatisfiable.
+    Returns (assignments, errors) where errors is a list of NEED_RECIPE strings.
     """
     omega3_pool   = [r for r in pool if r.get("flags", {}).get("containsOmega3Fish")]
     legume_pool   = [r for r in pool if r.get("flags", {}).get("containsLegumes") and not r.get("flags", {}).get("containsOmega3Fish")]
     other_pool    = [r for r in pool if not r.get("flags", {}).get("containsOmega3Fish") and not r.get("flags", {}).get("containsLegumes")]
 
+    other_needed = 7 - min_omega3 - min_legumes
+    errors = []
     if len(omega3_pool) < min_omega3:
-        return None, f"NEED_RECIPE: dinner, containsOmega3Fish=true (have {len(omega3_pool)}, need {min_omega3})"
+        errors.append(f"NEED_RECIPE: dinner, containsOmega3Fish=true (have {len(omega3_pool)}, need {min_omega3})")
     if len(legume_pool) < min_legumes:
-        return None, f"NEED_RECIPE: dinner, containsLegumes=true (have {len(legume_pool)}, need {min_legumes})"
-    if not other_pool and (7 - min_omega3 - min_legumes) > 0:
-        return None, f"NEED_RECIPE: dinner, general (no non-fish non-legume candidates)"
+        errors.append(f"NEED_RECIPE: dinner, containsLegumes=true (have {len(legume_pool)}, need {min_legumes})")
+    if len(other_pool) < other_needed:
+        errors.append(f"NEED_RECIPE: dinner, general (have {len(other_pool)}, need {other_needed})")
+    if errors:
+        return None, errors
 
     random.shuffle(omega3_pool)
     random.shuffle(legume_pool)
@@ -238,11 +242,26 @@ def main():
 
     # ── Select dinners ─────────────────────────────────────────────────────────
     dinner_pool = filter_pool(recipes_list, "dinner", hard_exclude["dinner"])
-    dinner_assignments, dinner_error = select_dinners(
+    dinner_assignments, dinner_errors = select_dinners(
         dinner_pool, days, ingredient_map, recipes_by_id)
 
-    if dinner_error:
-        need_recipe_signals.append(dinner_error)
+    if dinner_errors:
+        need_recipe_signals.extend(dinner_errors)
+
+    # ── Pre-check lunch pool (before bail-out so all signals surface at once) ──
+    lunch_pool = filter_pool(recipes_list, "lunch", hard_exclude["lunch"])
+    # Need enough distinct lunches to cover non-leftover days (max 4 leftover slots → min 3 distinct)
+    MIN_LUNCH_DISTINCT = 3
+    if len(lunch_pool) < MIN_LUNCH_DISTINCT:
+        need_recipe_signals.append(
+            f"NEED_RECIPE: lunch (have {len(lunch_pool)} candidates, need {MIN_LUNCH_DISTINCT} distinct)")
+
+    # ── Pre-check snack pool ───────────────────────────────────────────────────
+    snack_pool = filter_pool(recipes_list, "snack", hard_exclude["snack"])
+    MIN_SNACK_DISTINCT = 3
+    if len(snack_pool) < MIN_SNACK_DISTINCT:
+        need_recipe_signals.append(
+            f"NEED_RECIPE: snack (have {len(snack_pool)} candidates, need {MIN_SNACK_DISTINCT} distinct)")
 
     # ── If library insufficient, bail out ─────────────────────────────────────
     if need_recipe_signals:
@@ -256,7 +275,6 @@ def main():
     leftover_dinners = {a["day"]: a["recipeId"] for a in dinner_assignments
                         if recipes_by_id.get(a["recipeId"], {}).get("flags", {}).get("leftoversFriendly")}
 
-    lunch_pool = filter_pool(recipes_list, "lunch", hard_exclude["lunch"])
     random.shuffle(lunch_pool)
     lunch_pool_cycle = list(lunch_pool)
 
@@ -295,14 +313,13 @@ def main():
                     lunches.append({"day": day, "recipeId": leftover_dinners[prev_day],
                                     "isLeftover": True, "sourceDay": prev_day})
                 else:
-                    # Last resort: any dinner leftover
-                    fallback = next(iter(leftover_dinners.values()), None)
-                    if fallback:
-                        lunches.append({"day": day, "recipeId": fallback,
-                                        "isLeftover": True, "sourceDay": None})
+                    # Last resort: any dinner leftover — find correct sourceDay
+                    fallback_day = next(iter(leftover_dinners.keys()), None)
+                    if fallback_day:
+                        lunches.append({"day": day, "recipeId": leftover_dinners[fallback_day],
+                                        "isLeftover": True, "sourceDay": fallback_day})
 
     # ── Assign snacks (at least 4 days) ───────────────────────────────────────
-    snack_pool = filter_pool(recipes_list, "snack", hard_exclude["snack"])
     random.shuffle(snack_pool)
 
     # Pick snack days: prefer Mon/Wed/Fri/Sat/Sun for spread

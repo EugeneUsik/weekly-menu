@@ -1,0 +1,561 @@
+{
+  "weekId": "2026-W17",
+  "generatedAt": "2026-04-05T23:49:39.707955+03:00",
+  "days": [
+    {
+      "date": "2026-04-20",
+      "dayNameRu": "Понедельник",
+      "meals": {
+        "breakfast": {
+          "recipeId": "oat-porridge-banana",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "lunch": {
+          "recipeId": "turkey-rice-bowl",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "dinner": {
+          "recipeId": "chicken-rice-pilaf",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "snack": {
+          "recipeId": "granola-blueberry-snack",
+          "isLeftover": false,
+          "sourceDay": null
+        }
+      }
+    },
+    {
+      "date": "2026-04-21",
+      "dayNameRu": "Вторник",
+      "meals": {
+        "breakfast": {
+          "recipeId": "boiled-eggs-cheese-toast",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "lunch": {
+          "recipeId": "chicken-rice-pilaf",
+          "isLeftover": true,
+          "sourceDay": "2026-04-20"
+        },
+        "dinner": {
+          "recipeId": "baked-mackerel-vegetables",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "snack": null
+      }
+    },
+    {
+      "date": "2026-04-22",
+      "dayNameRu": "Среда",
+      "meals": {
+        "breakfast": {
+          "recipeId": "cottage-cheese-pancakes",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "lunch": {
+          "recipeId": "rice-vegetable-soup",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "dinner": {
+          "recipeId": "green-lentil-vegetable-stew",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "snack": {
+          "recipeId": "yogurt-walnut-bowl",
+          "isLeftover": false,
+          "sourceDay": null
+        }
+      }
+    },
+    {
+      "date": "2026-04-23",
+      "dayNameRu": "Четверг",
+      "meals": {
+        "breakfast": {
+          "recipeId": "buckwheat-yogurt-berries",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "lunch": {
+          "recipeId": "green-lentil-vegetable-stew",
+          "isLeftover": true,
+          "sourceDay": "2026-04-22"
+        },
+        "dinner": {
+          "recipeId": "chicken-broccoli-buckwheat",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "snack": null
+      }
+    },
+    {
+      "date": "2026-04-24",
+      "dayNameRu": "Пятница",
+      "meals": {
+        "breakfast": {
+          "recipeId": "rice-porridge-banana",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "lunch": {
+          "recipeId": "chicken-broccoli-buckwheat",
+          "isLeftover": true,
+          "sourceDay": "2026-04-23"
+        },
+        "dinner": {
+          "recipeId": "salmon-lentil-bowl",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "snack": {
+          "recipeId": "toast-walnuts-honey",
+          "isLeftover": false,
+          "sourceDay": null
+        }
+      }
+    },
+    {
+      "date": "2026-04-25",
+      "dayNameRu": "Суббота",
+      "meals": {
+        "breakfast": {
+          "recipeId": "toast-cottage-cheese-blueberries",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "lunch": {
+          "recipeId": "salmon-lentil-bowl",
+          "isLeftover": true,
+          "sourceDay": "2026-04-24"
+        },
+        "dinner": {
+          "recipeId": "chickpea-tomato-spinach-soup",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "snack": {
+          "recipeId": "granola-blueberry-snack",
+          "isLeftover": false,
+          "sourceDay": null
+        }
+      }
+    },
+    {
+      "date": "2026-04-26",
+      "dayNameRu": "Воскресенье",
+      "meals": {
+        "breakfast": {
+          "recipeId": "pancakes-strawberries",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "lunch": {
+          "recipeId": "broccoli-cheese-soup",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "dinner": {
+          "recipeId": "chickpea-broccoli-bowl",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "snack": {
+          "recipeId": "yogurt-walnut-bowl",
+          "isLeftover": false,
+          "sourceDay": null
+        }
+      }
+    }
+  ],
+  "shoppingList": [
+    {
+      "ingredientId": "banana",
+      "nameRu": "Банан",
+      "nameLt": "Bananas",
+      "category": "produce",
+      "amount": 6.0,
+      "unit": "pcs",
+      "neededByDate": "2026-04-20",
+      "checkboxKey": "2026-W17:produce|Банан|pcs"
+    },
+    {
+      "ingredientId": "bell_pepper",
+      "nameRu": "Болгарский перец",
+      "nameLt": "Paprika",
+      "category": "produce",
+      "amount": 6.0,
+      "unit": "pcs",
+      "neededByDate": "2026-04-20",
+      "checkboxKey": "2026-W17:produce|Болгарский перец|pcs"
+    },
+    {
+      "ingredientId": "carrot",
+      "nameRu": "Морковь",
+      "nameLt": "Morka",
+      "category": "produce",
+      "amount": 1150,
+      "unit": "g",
+      "neededByDate": "2026-04-20",
+      "checkboxKey": "2026-W17:produce|Морковь|g"
+    },
+    {
+      "ingredientId": "onion",
+      "nameRu": "Репчатый лук",
+      "nameLt": "Svogūnas",
+      "category": "produce",
+      "amount": 7.0,
+      "unit": "pcs",
+      "neededByDate": "2026-04-20",
+      "checkboxKey": "2026-W17:produce|Репчатый лук|pcs"
+    },
+    {
+      "ingredientId": "garlic",
+      "nameRu": "Чеснок",
+      "nameLt": "Česnakas",
+      "category": "produce",
+      "amount": 22.0,
+      "unit": "pcs",
+      "neededByDate": "2026-04-20",
+      "checkboxKey": "2026-W17:produce|Чеснок|pcs"
+    },
+    {
+      "ingredientId": "milk",
+      "nameRu": "Молоко",
+      "nameLt": "Pienas",
+      "category": "dairy",
+      "amount": 1600,
+      "unit": "ml",
+      "neededByDate": "2026-04-20",
+      "checkboxKey": "2026-W17:dairy|Молоко|ml"
+    },
+    {
+      "ingredientId": "natural_yogurt",
+      "nameRu": "Натуральный йогурт",
+      "nameLt": "Natūralus jogurtas",
+      "category": "dairy",
+      "amount": 1800,
+      "unit": "g",
+      "neededByDate": "2026-04-20",
+      "checkboxKey": "2026-W17:dairy|Натуральный йогурт|g"
+    },
+    {
+      "ingredientId": "chicken_breast",
+      "nameRu": "Куриное филе",
+      "nameLt": "Vištienos filė",
+      "category": "meat",
+      "amount": 2400,
+      "unit": "g",
+      "neededByDate": "2026-04-20",
+      "checkboxKey": "2026-W17:meat|Куриное филе|g"
+    },
+    {
+      "ingredientId": "turkey_breast",
+      "nameRu": "Филе индейки",
+      "nameLt": "Kalakutienos filė",
+      "category": "meat",
+      "amount": 450,
+      "unit": "g",
+      "neededByDate": "2026-04-20",
+      "checkboxKey": "2026-W17:meat|Филе индейки|g"
+    },
+    {
+      "ingredientId": "granola",
+      "nameRu": "Гранола",
+      "nameLt": "Granola",
+      "category": "grains",
+      "amount": 300,
+      "unit": "g",
+      "neededByDate": "2026-04-20",
+      "checkboxKey": "2026-W17:grains|Гранола|g"
+    },
+    {
+      "ingredientId": "rolled_oats",
+      "nameRu": "Овсяные хлопья",
+      "nameLt": "Avižiniai dribsniai",
+      "category": "grains",
+      "amount": 300,
+      "unit": "g",
+      "neededByDate": "2026-04-20",
+      "checkboxKey": "2026-W17:grains|Овсяные хлопья|g"
+    },
+    {
+      "ingredientId": "rice",
+      "nameRu": "Рис",
+      "nameLt": "Ryžiai",
+      "category": "grains",
+      "amount": 1440,
+      "unit": "g",
+      "neededByDate": "2026-04-20",
+      "checkboxKey": "2026-W17:grains|Рис|g"
+    },
+    {
+      "ingredientId": "frozen_blueberries",
+      "nameRu": "Замороженная черника",
+      "nameLt": "Šaldytos mėlynės",
+      "category": "frozen",
+      "amount": 900,
+      "unit": "g",
+      "neededByDate": "2026-04-20",
+      "checkboxKey": "2026-W17:frozen|Замороженная черника|g"
+    },
+    {
+      "ingredientId": "honey",
+      "nameRu": "Мёд",
+      "nameLt": "Medus",
+      "category": "pantry",
+      "amount": 16.0,
+      "unit": "tbsp",
+      "neededByDate": "2026-04-20",
+      "checkboxKey": "2026-W17:pantry|Мёд|tbsp"
+    },
+    {
+      "ingredientId": "olive_oil",
+      "nameRu": "Оливковое масло",
+      "nameLt": "Alyvuogių aliejus",
+      "category": "pantry",
+      "amount": 27.0,
+      "unit": "tbsp",
+      "neededByDate": "2026-04-20",
+      "checkboxKey": "2026-W17:pantry|Оливковое масло|tbsp"
+    },
+    {
+      "ingredientId": "zucchini",
+      "nameRu": "Кабачок",
+      "nameLt": "Cukinija",
+      "category": "produce",
+      "amount": 400,
+      "unit": "g",
+      "neededByDate": "2026-04-21",
+      "checkboxKey": "2026-W17:produce|Кабачок|g"
+    },
+    {
+      "ingredientId": "lemon",
+      "nameRu": "Лимон",
+      "nameLt": "Citrina",
+      "category": "produce",
+      "amount": 4.0,
+      "unit": "pcs",
+      "neededByDate": "2026-04-21",
+      "checkboxKey": "2026-W17:produce|Лимон|pcs"
+    },
+    {
+      "ingredientId": "butter",
+      "nameRu": "Сливочное масло",
+      "nameLt": "Sviestas",
+      "category": "dairy",
+      "amount": 5.0,
+      "unit": "tbsp",
+      "neededByDate": "2026-04-21",
+      "checkboxKey": "2026-W17:dairy|Сливочное масло|tbsp"
+    },
+    {
+      "ingredientId": "hard_cheese",
+      "nameRu": "Твёрдый сыр",
+      "nameLt": "Kietasis sūris",
+      "category": "dairy",
+      "amount": 150,
+      "unit": "g",
+      "neededByDate": "2026-04-21",
+      "checkboxKey": "2026-W17:dairy|Твёрдый сыр|g"
+    },
+    {
+      "ingredientId": "eggs",
+      "nameRu": "Яйца",
+      "nameLt": "Kiaušiniai",
+      "category": "dairy",
+      "amount": 10.0,
+      "unit": "pcs",
+      "neededByDate": "2026-04-21",
+      "checkboxKey": "2026-W17:dairy|Яйца|pcs"
+    },
+    {
+      "ingredientId": "mackerel_fillet",
+      "nameRu": "Филе скумбрии",
+      "nameLt": "Skumbrių filė",
+      "category": "fish",
+      "amount": 600,
+      "unit": "g",
+      "neededByDate": "2026-04-21",
+      "checkboxKey": "2026-W17:fish|Филе скумбрии|g"
+    },
+    {
+      "ingredientId": "whole_wheat_bread",
+      "nameRu": "Цельнозерновой хлеб",
+      "nameLt": "Viso grūdo duona",
+      "category": "grains",
+      "amount": 18.0,
+      "unit": "pcs",
+      "neededByDate": "2026-04-21",
+      "checkboxKey": "2026-W17:grains|Цельнозерновой хлеб|pcs"
+    },
+    {
+      "ingredientId": "cottage_cheese",
+      "nameRu": "Творог",
+      "nameLt": "Varškė",
+      "category": "dairy",
+      "amount": 750,
+      "unit": "g",
+      "neededByDate": "2026-04-22",
+      "checkboxKey": "2026-W17:dairy|Творог|g"
+    },
+    {
+      "ingredientId": "green_lentils",
+      "nameRu": "Зелёная чечевица",
+      "nameLt": "Žaliosios lęšiai",
+      "category": "legumes",
+      "amount": 980,
+      "unit": "g",
+      "neededByDate": "2026-04-22",
+      "checkboxKey": "2026-W17:legumes|Зелёная чечевица|g"
+    },
+    {
+      "ingredientId": "walnuts",
+      "nameRu": "Грецкие орехи",
+      "nameLt": "Graikiniai riešutai",
+      "category": "pantry",
+      "amount": 210,
+      "unit": "g",
+      "neededByDate": "2026-04-22",
+      "checkboxKey": "2026-W17:pantry|Грецкие орехи|g"
+    },
+    {
+      "ingredientId": "vegetable_broth",
+      "nameRu": "Овощной бульон",
+      "nameLt": "Daržovių sultinys",
+      "category": "pantry",
+      "amount": 3400,
+      "unit": "ml",
+      "neededByDate": "2026-04-22",
+      "checkboxKey": "2026-W17:pantry|Овощной бульон|ml"
+    },
+    {
+      "ingredientId": "wheat_flour",
+      "nameRu": "Пшеничная мука",
+      "nameLt": "Kvietiniai miltai",
+      "category": "pantry",
+      "amount": 5.0,
+      "unit": "tbsp",
+      "neededByDate": "2026-04-22",
+      "checkboxKey": "2026-W17:pantry|Пшеничная мука|tbsp"
+    },
+    {
+      "ingredientId": "cumin",
+      "nameRu": "Тмин молотый",
+      "nameLt": "Kmynai",
+      "category": "pantry",
+      "amount": 3.0,
+      "unit": "tsp",
+      "neededByDate": "2026-04-22",
+      "checkboxKey": "2026-W17:pantry|Тмин молотый|tsp"
+    },
+    {
+      "ingredientId": "canned_tomatoes",
+      "nameRu": "Томаты консервированные",
+      "nameLt": "Konservuoti pomidorai",
+      "category": "pantry",
+      "amount": 1400,
+      "unit": "g",
+      "neededByDate": "2026-04-22",
+      "checkboxKey": "2026-W17:pantry|Томаты консервированные|g"
+    },
+    {
+      "ingredientId": "broccoli",
+      "nameRu": "Брокколи",
+      "nameLt": "Brokoliai",
+      "category": "produce",
+      "amount": 1700,
+      "unit": "g",
+      "neededByDate": "2026-04-23",
+      "checkboxKey": "2026-W17:produce|Брокколи|g"
+    },
+    {
+      "ingredientId": "buckwheat",
+      "nameRu": "Гречневая крупа",
+      "nameLt": "Grikiai",
+      "category": "grains",
+      "amount": 720,
+      "unit": "g",
+      "neededByDate": "2026-04-23",
+      "checkboxKey": "2026-W17:grains|Гречневая крупа|g"
+    },
+    {
+      "ingredientId": "salmon_fillet",
+      "nameRu": "Филе лосося",
+      "nameLt": "Lašišos filė",
+      "category": "fish",
+      "amount": 1200,
+      "unit": "g",
+      "neededByDate": "2026-04-24",
+      "checkboxKey": "2026-W17:fish|Филе лосося|g"
+    },
+    {
+      "ingredientId": "spinach",
+      "nameRu": "Шпинат",
+      "nameLt": "Špinatai",
+      "category": "produce",
+      "amount": 150,
+      "unit": "g",
+      "neededByDate": "2026-04-25",
+      "checkboxKey": "2026-W17:produce|Шпинат|g"
+    },
+    {
+      "ingredientId": "chickpeas",
+      "nameRu": "Нут",
+      "nameLt": "Avinžirniai",
+      "category": "legumes",
+      "amount": 960,
+      "unit": "g",
+      "neededByDate": "2026-04-25",
+      "checkboxKey": "2026-W17:legumes|Нут|g"
+    },
+    {
+      "ingredientId": "turmeric",
+      "nameRu": "Куркума",
+      "nameLt": "Ciberžolė",
+      "category": "pantry",
+      "amount": 0.5,
+      "unit": "tsp",
+      "neededByDate": "2026-04-25",
+      "checkboxKey": "2026-W17:pantry|Куркума|tsp"
+    },
+    {
+      "ingredientId": "frozen_strawberries",
+      "nameRu": "Замороженная клубника",
+      "nameLt": "Šaldytos braškės",
+      "category": "frozen",
+      "amount": 200,
+      "unit": "g",
+      "neededByDate": "2026-04-26",
+      "checkboxKey": "2026-W17:frozen|Замороженная клубника|g"
+    },
+    {
+      "ingredientId": "wheat_flour",
+      "nameRu": "Пшеничная мука",
+      "nameLt": "Kvietiniai miltai",
+      "category": "pantry",
+      "amount": 200,
+      "unit": "g",
+      "neededByDate": "2026-04-26",
+      "checkboxKey": "2026-W17:pantry|Пшеничная мука|g"
+    }
+  ],
+  "scoreReport": {
+    "fishMeals": 3,
+    "legumeMeals": 6,
+    "redMeatMeals": 0,
+    "snackDays": 5,
+    "warnings": [
+      "snack_recipe_repeated: -10"
+    ]
+  }
+}
