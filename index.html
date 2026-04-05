@@ -4,40 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Семейное меню на неделю">
-  <meta name="theme-color" content="#1B4332">
   <title>Меню</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <nav class="nav">
-    <div class="nav-inner">
-      <div class="nav-top">
-        <span class="nav-logo" aria-hidden="true">🌿</span>
-        <select id="week-select" class="nav-week-select" aria-label="Выбор недели"></select>
-      </div>
-      <div class="nav-tabs" role="tablist">
-        <button class="nav-tab active" role="tab" data-screen="menu"     aria-selected="true">Меню</button>
-        <button class="nav-tab"        role="tab" data-screen="shopping" aria-selected="false">Покупки</button>
-        <button class="nav-tab"        role="tab" data-screen="recipes"  aria-selected="false">Рецепты</button>
-      </div>
+  <nav class="nav" id="nav">
+    <div class="nav-top">
+      <label for="week-select" class="nav-week-label">Неделя:</label>
+      <select id="week-select" class="nav-week-select"></select>
+    </div>
+    <div class="nav-tabs" role="tablist">
+      <button class="nav-tab active" role="tab" data-screen="menu" aria-selected="true">Меню</button>
+      <button class="nav-tab" role="tab" data-screen="shopping" aria-selected="false">Покупки</button>
+      <button class="nav-tab" role="tab" data-screen="recipes" aria-selected="false">Рецепты</button>
     </div>
   </nav>
 
   <main class="main">
 
     <section id="screen-menu" class="screen screen--active" role="tabpanel">
-      <div id="menu-content"></div>
+      <div id="menu-content" class="menu-grid-wrapper"></div>
     </section>
 
     <section id="screen-shopping" class="screen" role="tabpanel">
-      <div id="shopping-progress" class="shopping-progress-wrap"></div>
       <div class="shopping-actions">
-        <button id="btn-check-all" class="btn">Отметить всё</button>
-        <button id="btn-reset"     class="btn btn--ghost">Сбросить</button>
+        <button id="btn-check-all" class="btn btn--secondary">Отметить всё</button>
+        <button id="btn-reset" class="btn btn--secondary">Сбросить</button>
       </div>
       <div id="shopping-content"></div>
     </section>
@@ -49,19 +42,16 @@
         <button class="filter-tab" data-filter="lunch">Обеды</button>
         <button class="filter-tab" data-filter="dinner">Ужины</button>
         <button class="filter-tab" data-filter="snack">Перекусы</button>
-        <button class="filter-tab" data-filter="favorites">♥ Избранное</button>
+        <button class="filter-tab" data-filter="favorites">&#9829; Избранное</button>
       </div>
       <div id="recipes-content"></div>
     </section>
 
   </main>
 
-  <div id="recipe-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div id="recipe-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
     <div class="modal-backdrop" id="modal-backdrop"></div>
-    <div class="modal-sheet" id="modal-sheet">
-      <div class="modal-handle"></div>
-      <div class="modal-body" id="modal-body"></div>
-    </div>
+    <div class="modal-content" id="modal-content"></div>
   </div>
 
   <script src="app.js"></script>

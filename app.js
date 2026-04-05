@@ -1,15 +1,19 @@
 'use strict';
 
-// ── State ─────────────────────────────────────────────────────────────────────
+// ── State ────────────────────────────────────────────────────────────────────
 const state = {
-  currentWeekId:    null,
-  activeScreen:     'menu',
-  recipeFilter:     'all',
+  currentWeekId: null,
+  activeScreen: 'menu',
+  recipeFilter: 'all',
   expandedRecipeId: null,
-  data: { index: null, recipes: null, menu: null },
+  data: {
+    index: null,
+    recipes: null,
+    menu: null,
+  },
 };
 
-// ── LocalStorage ──────────────────────────────────────────────────────────────
+// ── LocalStorage helpers ─────────────────────────────────────────────────────
 const LS = {
   getChecked(weekId) {
     try { return new Set(JSON.parse(localStorage.getItem(`wm:checked:${weekId}`)) || []); }
@@ -27,24 +31,26 @@ const LS = {
   },
 };
 
-// ── Fetch ─────────────────────────────────────────────────────────────────────
+// ── Fetch helpers ────────────────────────────────────────────────────────────
 async function fetchJSON(path) {
   const res = await fetch(path);
-  if (!res.ok) throw new Error(`Не удалось загрузить ${path} (${res.status})`);
+  if (!res.ok) throw new Error(`Failed to load ${path}: ${res.status}`);
   return res.json();
 }
 
-// ── Boot ──────────────────────────────────────────────────────────────────────
+// ── Boot sequence ────────────────────────────────────────────────────────────
 async function boot() {
   try {
-    state.data.index    = await fetchJSON('data/index.json');
+    state.data.index = await fetchJSON('data/index.json');
     state.currentWeekId = state.data.index.defaultWeekId;
+
     populateWeekSelector(state.data.index.weeks, state.currentWeekId);
 
     [state.data.recipes, state.data.menu] = await Promise.all([
       fetchJSON('data/recipes.json'),
       fetchJSON(`data/menus/${state.currentWeekId}.json`),
     ]);
+
     renderActiveScreen();
   } catch (err) {
     showError(err.message);
@@ -59,15 +65,14 @@ function populateWeekSelector(weeks, currentId) {
     .join('');
 }
 
-// ── Routing ───────────────────────────────────────────────────────────────────
+// ── Routing / screen management ──────────────────────────────────────────────
 function setActiveScreen(name) {
   state.activeScreen = name;
   document.querySelectorAll('.screen').forEach(el => el.classList.remove('screen--active'));
   document.getElementById(`screen-${name}`).classList.add('screen--active');
   document.querySelectorAll('.nav-tab').forEach(btn => {
-    const active = btn.dataset.screen === name;
-    btn.classList.toggle('active', active);
-    btn.setAttribute('aria-selected', active ? 'true' : 'false');
+    btn.classList.toggle('active', btn.dataset.screen === name);
+    btn.setAttribute('aria-selected', btn.dataset.screen === name ? 'true' : 'false');
   });
 }
 
@@ -79,122 +84,81 @@ function renderActiveScreen() {
   }
 }
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
-const MEAL_LABELS = { breakfast: 'Завтрак', lunch: 'Обед', dinner: 'Ужин', snack: 'Перекус' };
-const MEAL_ICONS  = { breakfast: '☀️',      lunch: '🥗',   dinner: '🍽️',  snack: '🍎' };
-const MEAL_TYPES  = ['breakfast', 'lunch', 'dinner', 'snack'];
-
-const MONTHS_SHORT = ['', 'янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
-
-function todayISO() {
-  const d = new Date();
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-}
-
-const TODAY = todayISO();
-
-function shortDate(iso) {
-  const [, m, d] = iso.split('-');
-  return `${parseInt(d, 10)} ${MONTHS_SHORT[parseInt(m, 10)]}`;
-}
-
-function formatAmount(amount, unit) {
-  const n = Number.isInteger(amount) ? amount : parseFloat(amount.toFixed(1));
-  const labels = { g: 'г', ml: 'мл', pcs: 'шт', tbsp: 'ст. л.', tsp: 'ч. л.', cup: 'стак.' };
-  return `${n}\u202f${labels[unit] || unit}`;
-}
-
+// ── Recipe lookup ────────────────────────────────────────────────────────────
 function getRecipe(id) {
   return (state.data.recipes || []).find(r => r.id === id) || null;
 }
 
-function loadingHTML(text = 'Загрузка...') {
-  return `<div class="loading"><div class="loading-spinner"></div><span>${text}</span></div>`;
-}
+// ── Menu screen ──────────────────────────────────────────────────────────────
+const MEAL_TYPES = ['breakfast', 'lunch', 'dinner', 'snack'];
+const MEAL_LABELS = { breakfast: 'Завтрак', lunch: 'Обед', dinner: 'Ужин', snack: 'Перекус' };
 
-// ── Menu screen ───────────────────────────────────────────────────────────────
 function renderMenu() {
   const container = document.getElementById('menu-content');
-  const menu      = state.data.menu;
-  if (!menu) { container.innerHTML = loadingHTML(); return; }
+  const menu = state.data.menu;
+  if (!menu) { container.innerHTML = '<div class="loading">Загрузка...</div>'; return; }
 
-  const cards = menu.days.map(day => {
-    const isToday = day.date === TODAY;
+  const headerCells = ['', ...MEAL_TYPES.map(t => MEAL_LABELS[t])]
+    .map(label => `<div>${label}</div>`)
+    .join('');
 
-    const mealRows = MEAL_TYPES.map(type => {
+  const rows = menu.days.map(day => {
+    const dayLabel = `<div class="menu-day-label">${shortDay(day.dayNameRu)}<br><span style="font-weight:400;color:#999;font-size:11px">${shortDate(day.date)}</span></div>`;
+    const cells = MEAL_TYPES.map(type => {
       const meal = day.meals[type];
-      const icon = MEAL_ICONS[type];
-
-      if (!meal) {
-        return `<div class="meal-row meal-row--empty">
-          <span class="meal-icon">${icon}</span>
-          <span class="meal-name meal-name--empty">—</span>
-        </div>`;
-      }
-
+      if (!meal) return `<div class="menu-cell menu-cell--empty">—</div>`;
       const recipe = getRecipe(meal.recipeId);
-      const name   = recipe ? recipe.nameRu : meal.recipeId;
-
-      if (meal.isLeftover) {
-        return `<div class="meal-row meal-row--leftover" role="button" tabindex="0" data-recipe-id="${meal.recipeId}" aria-label="${name}">
-          <span class="meal-icon">${icon}</span>
-          <span class="meal-name">${name}</span>
-          <span class="meal-leftover-badge">↩ остаток</span>
-        </div>`;
-      }
-
-      const time = recipe ? `<span class="meal-time">${recipe.totalMinutes}\u202fмин</span>` : '';
-      return `<div class="meal-row" role="button" tabindex="0" data-recipe-id="${meal.recipeId}" aria-label="${name}">
-        <span class="meal-icon">${icon}</span>
-        <span class="meal-name">${name}</span>
-        ${time}
+      const name = recipe ? recipe.nameRu : meal.recipeId;
+      const leftoverClass = meal.isLeftover ? ' menu-cell--leftover' : '';
+      return `<div class="menu-cell${leftoverClass}" role="button" tabindex="0" data-recipe-id="${meal.recipeId}" aria-label="${name}">
+        <span class="menu-cell-name">${name}</span>
       </div>`;
     }).join('');
-
-    return `<div class="day-card${isToday ? ' day-card--today' : ''}">
-      <div class="day-card-header">
-        <span class="day-name">${day.dayNameRu}</span>
-        <span class="day-date">${shortDate(day.date)}</span>
-      </div>
-      <div class="day-meals">${mealRows}</div>
-    </div>`;
+    return `<div class="menu-row">${dayLabel}${cells}</div>`;
   }).join('');
 
-  container.innerHTML = `<div class="days-list">${cards}</div>`;
+  container.innerHTML = `
+    <div class="menu-grid">
+      <div class="menu-grid-header">${headerCells}</div>
+      ${rows}
+    </div>`;
 
-  container.querySelectorAll('.meal-row[data-recipe-id]').forEach(el => {
+  container.querySelectorAll('.menu-cell[data-recipe-id]').forEach(el => {
     el.addEventListener('click', () => openRecipeModal(el.dataset.recipeId));
-    el.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openRecipeModal(el.dataset.recipeId); }
-    });
+    el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openRecipeModal(el.dataset.recipeId); });
   });
 }
 
-// ── Recipe modal ──────────────────────────────────────────────────────────────
+function shortDay(nameRu) {
+  const map = { 'Понедельник':'Пн', 'Вторник':'Вт', 'Среда':'Ср', 'Четверг':'Чт', 'Пятница':'Пт', 'Суббота':'Сб', 'Воскресенье':'Вс' };
+  return map[nameRu] || nameRu.slice(0, 2);
+}
+function shortDate(iso) {
+  const [, m, d] = iso.split('-');
+  return `${parseInt(d)}.${parseInt(m)}`;
+}
+
+// ── Recipe modal (from menu cell) ────────────────────────────────────────────
 function openRecipeModal(recipeId) {
   const recipe = getRecipe(recipeId);
   if (!recipe) return;
-
-  const isFav = LS.getFavorites().has(recipeId);
-  const body  = document.getElementById('modal-body');
-
-  body.innerHTML = `
-    <div class="recipe-modal-header">
-      <h2 class="recipe-modal-title" id="modal-title">${recipe.nameRu}</h2>
-      <button class="btn-favorite" id="modal-fav" aria-label="В избранное">${isFav ? '❤️' : '🤍'}</button>
-      <button class="btn-close"    id="modal-close" aria-label="Закрыть">✕</button>
-    </div>
-    <div class="recipe-modal-meta">
-      <span>${MEAL_LABELS[recipe.mealType]}</span>
-      <span class="meta-dot"></span>
-      <span>${recipe.totalMinutes} мин</span>
-      <span class="meta-dot"></span>
-      <span>${recipe.servings} порции</span>
-    </div>
-    ${renderNutritionPills(recipe.nutrition)}
-    ${renderRecipeBody(recipe)}`;
+  const favorites = LS.getFavorites();
+  const isFav = favorites.has(recipeId);
 
   const modal = document.getElementById('recipe-modal');
+  const content = document.getElementById('modal-content');
+
+  content.innerHTML = `
+    <div class="recipe-card-header">
+      <div>
+        <div class="recipe-card-title">${recipe.nameRu}</div>
+        <div class="recipe-card-meta">${MEAL_LABELS[recipe.mealType]} · ${recipe.activeMinutes} мин активно · ${recipe.totalMinutes} мин всего</div>
+      </div>
+      <button class="btn-favorite" id="modal-fav" aria-label="Добавить в избранное">${isFav ? '❤️' : '🤍'}</button>
+      <button class="btn-close" id="modal-close" aria-label="Закрыть">✕</button>
+    </div>
+    ${renderRecipeBody(recipe)}`;
+
   modal.classList.add('modal--open');
   modal.setAttribute('aria-hidden', 'false');
 
@@ -206,9 +170,6 @@ function openRecipeModal(recipeId) {
     LS.setFavorites(favs);
     document.getElementById('modal-fav').textContent = favs.has(recipeId) ? '❤️' : '🤍';
   });
-
-  // Scroll sheet to top whenever opened
-  document.getElementById('modal-sheet').scrollTop = 0;
 }
 
 function closeRecipeModal() {
@@ -217,24 +178,11 @@ function closeRecipeModal() {
   modal.setAttribute('aria-hidden', 'true');
 }
 
-function renderNutritionPills(n) {
-  if (!n) return '';
-  return `<div class="nutrition-strip">
-    <span class="nutrition-pill nutrition-pill--kcal">🔥 ${n.kcalPerServing} ккал</span>
-    <span class="nutrition-pill nutrition-pill--prot">💪 ${n.proteinG} г белка</span>
-    <span class="nutrition-pill nutrition-pill--fat">🧈 ${n.fatG} г жиров</span>
-    <span class="nutrition-pill nutrition-pill--carbs">🌾 ${n.carbsG} г углеводов</span>
-  </div>`;
-}
-
 function renderRecipeBody(recipe) {
-  // Build ingredient name map from shopping list (has Russian names)
-  const nameMap = {};
-  (state.data.menu?.shoppingList || []).forEach(s => { nameMap[s.ingredientId] = s.nameRu; });
-
   const ingredients = recipe.ingredients.map(ing => {
-    const name = nameMap[ing.ingredientId] || ing.ingredientId;
-    return `<li><span>${name}</span><span class="ingredient-amount">${formatAmount(ing.amount, ing.unit)}</span></li>`;
+    const map = state.data.menu?.shoppingList?.find(s => s.ingredientId === ing.ingredientId);
+    const name = map ? map.nameRu : ing.ingredientId;
+    return `<li>${name} — ${ing.amount} ${ing.unit}</li>`;
   }).join('');
 
   const steps = recipe.stepsRu.map(s => `<li>${s}</li>`).join('');
@@ -247,7 +195,7 @@ function renderRecipeBody(recipe) {
     : '';
 
   return `
-    <div class="recipe-section-label">Ингредиенты · ${recipe.servings} порции</div>
+    <div class="recipe-section-label">Ингредиенты (на ${recipe.servings} порции)</div>
     <ul class="recipe-ingredients">${ingredients}</ul>
     <div class="recipe-section-label">Приготовление</div>
     <ol class="recipe-steps">${steps}</ol>
@@ -255,125 +203,103 @@ function renderRecipeBody(recipe) {
     ${subsHtml}`;
 }
 
-// ── Shopping screen ───────────────────────────────────────────────────────────
+// ── Shopping screen ──────────────────────────────────────────────────────────
 const CATEGORY_LABELS = {
-  produce: 'Овощи и фрукты', dairy:   'Молочное',  meat:   'Мясо',
-  fish:    'Рыба',           grains:  'Крупы',      legumes:'Бобовые',
-  frozen:  'Заморозка',      pantry:  'Бакалея',    other:  'Прочее',
+  produce: 'Овощи и фрукты', dairy: 'Молочное', meat: 'Мясо', fish: 'Рыба',
+  grains: 'Крупы и злаки', legumes: 'Бобовые', frozen: 'Заморозка',
+  pantry: 'Бакалея', other: 'Прочее',
 };
-const CATEGORY_ICONS = {
-  produce: '🥦', dairy: '🥛', meat: '🥩', fish:   '🐟',
-  grains:  '🌾', legumes: '🫘', frozen: '❄️', pantry: '🧂', other: '📦',
-};
-const CATEGORY_ORDER = ['produce', 'dairy', 'meat', 'fish', 'legumes', 'grains', 'frozen', 'pantry', 'other'];
 
 function renderShopping() {
-  const progressEl  = document.getElementById('shopping-progress');
-  const container   = document.getElementById('shopping-content');
-  const menu        = state.data.menu;
-  if (!menu) { container.innerHTML = loadingHTML(); return; }
+  const container = document.getElementById('shopping-content');
+  const menu = state.data.menu;
+  if (!menu) { container.innerHTML = '<div class="loading">Загрузка...</div>'; return; }
 
   const checked = LS.getChecked(state.currentWeekId);
-  const total   = menu.shoppingList.length;
-  const done    = menu.shoppingList.filter(i => checked.has(i.checkboxKey)).length;
-  const pct     = total ? Math.round(done / total * 100) : 0;
 
-  progressEl.innerHTML = `
-    <div class="shopping-progress-row">
-      <span>Куплено</span>
-      <span class="shopping-progress-count">${done} из ${total}</span>
-    </div>
-    <div class="shopping-progress-track">
-      <div class="shopping-progress-fill" style="width:${pct}%"></div>
-    </div>`;
-
-  // Group by category
   const grouped = {};
   for (const item of menu.shoppingList) {
-    (grouped[item.category] ??= []).push(item);
+    if (!grouped[item.category]) grouped[item.category] = [];
+    grouped[item.category].push(item);
   }
 
-  const html = CATEGORY_ORDER
-    .filter(cat => grouped[cat])
-    .map(cat => {
-      const rows = grouped[cat].map(item => {
-        const isChecked = checked.has(item.checkboxKey);
-        return `<div class="shopping-row${isChecked ? ' shopping-row--checked' : ''}"
-                     data-key="${item.checkboxKey}"
-                     role="checkbox" aria-checked="${isChecked}" tabindex="0">
-          <div class="shopping-checkbox">${isChecked ? '✓' : ''}</div>
-          <div class="shopping-name">
-            ${item.nameRu}
-            ${item.nameLt ? `<div class="shopping-name-lt">${item.nameLt}</div>` : ''}
-          </div>
-          <div class="shopping-amount">${formatAmount(item.amount, item.unit)}</div>
-        </div>`;
-      }).join('');
+  const CATEGORY_ORDER = ['produce', 'dairy', 'meat', 'fish', 'legumes', 'grains', 'frozen', 'pantry', 'other'];
+  const sortedCategories = CATEGORY_ORDER.filter(c => grouped[c]);
 
-      return `<div class="shopping-category">
-        <div class="shopping-category-header">
-          <span class="shopping-cat-icon">${CATEGORY_ICONS[cat] || ''}</span>
-          ${CATEGORY_LABELS[cat] || cat}
+  const html = sortedCategories.map(cat => {
+    const items = grouped[cat];
+    const rows = items.map(item => {
+      const isChecked = checked.has(item.checkboxKey);
+      return `<div class="shopping-row${isChecked ? ' shopping-row--checked' : ''}" data-key="${item.checkboxKey}" role="checkbox" aria-checked="${isChecked}" tabindex="0">
+        <div class="shopping-checkbox"></div>
+        <div class="shopping-name">
+          ${item.nameRu}
+          ${item.nameLt ? `<div class="shopping-name-lt">${item.nameLt}</div>` : ''}
         </div>
-        ${rows}
+        <div class="shopping-amount">${formatAmount(item.amount, item.unit)}</div>
       </div>`;
     }).join('');
 
-  container.innerHTML = html
-    ? `<div class="shopping-list">${html}</div>`
-    : `<div class="empty-state"><div class="empty-state-icon">🛒</div>Список покупок пуст</div>`;
+    return `<div class="shopping-category">
+      <div class="shopping-category-header">${CATEGORY_LABELS[cat] || cat}</div>
+      ${rows}
+    </div>`;
+  }).join('');
+
+  container.innerHTML = html || '<div class="loading">Список покупок пуст</div>';
 
   container.querySelectorAll('.shopping-row').forEach(row => {
     const toggle = () => {
-      const ch  = LS.getChecked(state.currentWeekId);
+      const checked = LS.getChecked(state.currentWeekId);
       const key = row.dataset.key;
-      if (ch.has(key)) ch.delete(key); else ch.add(key);
-      LS.setChecked(state.currentWeekId, ch);
+      if (checked.has(key)) checked.delete(key); else checked.add(key);
+      LS.setChecked(state.currentWeekId, checked);
       renderShopping();
     };
     row.addEventListener('click', toggle);
-    row.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+    row.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') toggle(); });
   });
 }
 
-// ── Recipes screen ────────────────────────────────────────────────────────────
+function formatAmount(amount, unit) {
+  const n = Number.isInteger(amount) ? amount : amount.toFixed(1).replace(/\.0$/, '');
+  const unitLabels = { g: 'г', ml: 'мл', pcs: 'шт', tbsp: 'ст. л.', tsp: 'ч. л.', cup: 'стак.' };
+  return `${n} ${unitLabels[unit] || unit}`;
+}
+
+// ── Recipes screen ───────────────────────────────────────────────────────────
 function renderRecipes() {
   const container = document.getElementById('recipes-content');
-  const recipes   = state.data.recipes;
-  if (!recipes) { container.innerHTML = loadingHTML(); return; }
+  const recipes = state.data.recipes;
+  if (!recipes) { container.innerHTML = '<div class="loading">Загрузка...</div>'; return; }
 
   const favorites = LS.getFavorites();
-
   let filtered;
-  if      (state.recipeFilter === 'favorites') filtered = recipes.filter(r => favorites.has(r.id));
-  else if (state.recipeFilter === 'all')       filtered = recipes;
-  else                                          filtered = recipes.filter(r => r.mealType === state.recipeFilter);
+  if (state.recipeFilter === 'favorites') {
+    filtered = recipes.filter(r => favorites.has(r.id));
+  } else if (state.recipeFilter === 'all') {
+    filtered = recipes;
+  } else {
+    filtered = recipes.filter(r => r.mealType === state.recipeFilter);
+  }
 
   if (filtered.length === 0) {
-    container.innerHTML = `<div class="empty-state">
-      <div class="empty-state-icon">${state.recipeFilter === 'favorites' ? '🤍' : '🍴'}</div>
-      ${state.recipeFilter === 'favorites' ? 'Нет избранных рецептов' : 'Нет рецептов'}
-    </div>`;
+    container.innerHTML = '<div class="loading">Нет рецептов</div>';
     return;
   }
 
   const html = filtered.map(recipe => {
-    const isFav      = favorites.has(recipe.id);
+    const isFav = favorites.has(recipe.id);
     const isExpanded = state.expandedRecipeId === recipe.id;
-    const icon       = MEAL_ICONS[recipe.mealType] || '🍴';
-
     return `<div class="recipe-card${isExpanded ? ' recipe-card--expanded' : ''}" data-recipe-id="${recipe.id}">
       <div class="recipe-card-summary">
-        <span class="recipe-card-icon">${icon}</span>
-        <div class="recipe-card-info">
-          <div class="recipe-card-name">${recipe.nameRu}</div>
-          <div class="recipe-card-submeta">${recipe.totalMinutes} мин · ${recipe.servings} порции</div>
-        </div>
+        <div class="recipe-card-summary-name">${recipe.nameRu}</div>
+        <span class="recipe-card-badge">${MEAL_LABELS[recipe.mealType]}</span>
         <button class="recipe-card-fav" data-fav-id="${recipe.id}" aria-label="Избранное">${isFav ? '❤️' : '🤍'}</button>
         <span class="recipe-card-chevron"></span>
       </div>
       <div class="recipe-card-body">
-        ${renderNutritionPills(recipe.nutrition)}
+        <div class="recipe-card-meta">${recipe.activeMinutes} мин активно · ${recipe.totalMinutes} мин всего</div>
         ${renderRecipeBody(recipe)}
       </div>
     </div>`;
@@ -385,7 +311,7 @@ function renderRecipes() {
     summary.addEventListener('click', e => {
       if (e.target.closest('.recipe-card-fav')) return;
       const card = summary.closest('.recipe-card');
-      const id   = card.dataset.recipeId;
+      const id = card.dataset.recipeId;
       state.expandedRecipeId = state.expandedRecipeId === id ? null : id;
       renderRecipes();
     });
@@ -394,7 +320,7 @@ function renderRecipes() {
   container.querySelectorAll('.recipe-card-fav').forEach(btn => {
     btn.addEventListener('click', e => {
       e.stopPropagation();
-      const id   = btn.dataset.favId;
+      const id = btn.dataset.favId;
       const favs = LS.getFavorites();
       if (favs.has(id)) favs.delete(id); else favs.add(id);
       LS.setFavorites(favs);
@@ -403,16 +329,7 @@ function renderRecipes() {
   });
 }
 
-// ── Error display ─────────────────────────────────────────────────────────────
-function showError(msg) {
-  document.querySelector('.error-banner')?.remove();
-  const div = document.createElement('div');
-  div.className = 'error-banner';
-  div.textContent = `Ошибка: ${msg}`;
-  document.querySelector('.main').prepend(div);
-}
-
-// ── Event wiring ──────────────────────────────────────────────────────────────
+// ── Event wiring ─────────────────────────────────────────────────────────────
 document.getElementById('week-select').addEventListener('change', async e => {
   state.currentWeekId = e.target.value;
   try {
@@ -433,7 +350,8 @@ document.querySelectorAll('.nav-tab').forEach(btn => {
 document.getElementById('btn-check-all').addEventListener('click', () => {
   const menu = state.data.menu;
   if (!menu) return;
-  LS.setChecked(state.currentWeekId, new Set(menu.shoppingList.map(i => i.checkboxKey)));
+  const all = new Set(menu.shoppingList.map(i => i.checkboxKey));
+  LS.setChecked(state.currentWeekId, all);
   renderShopping();
 });
 
@@ -444,14 +362,26 @@ document.getElementById('btn-reset').addEventListener('click', () => {
 
 document.querySelectorAll('.filter-tab').forEach(btn => {
   btn.addEventListener('click', () => {
-    state.recipeFilter     = btn.dataset.filter;
+    state.recipeFilter = btn.dataset.filter;
     state.expandedRecipeId = null;
     document.querySelectorAll('.filter-tab').forEach(b => b.classList.toggle('active', b === btn));
     renderRecipes();
   });
 });
 
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeRecipeModal(); });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeRecipeModal();
+});
 
-// ── Start ─────────────────────────────────────────────────────────────────────
+// ── Error display ────────────────────────────────────────────────────────────
+function showError(msg) {
+  const existing = document.querySelector('.error-banner');
+  if (existing) existing.remove();
+  const div = document.createElement('div');
+  div.className = 'error-banner';
+  div.textContent = `Ошибка: ${msg}`;
+  document.querySelector('.main').prepend(div);
+}
+
+// ── Start ────────────────────────────────────────────────────────────────────
 boot();
