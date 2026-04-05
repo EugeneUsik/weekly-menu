@@ -72,6 +72,7 @@ SOFT_PENALTY_WEIGHTS = {
     "legume_count_below_3":        15,
     "red_meat_above_2":            10,
     "low_snack_coverage":          10,
+    "snack_recipe_repeated":        5,
     "dinner_repeated_week3_4":     20,
     "breakfast_repeated_week3_4":  10,
     "consecutive_same_protein":    12,

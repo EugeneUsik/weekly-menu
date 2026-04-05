@@ -271,7 +271,7 @@ def validate_weekly_rules(menu, recipes_by_id):
 
     if omega3_meals < 2:
         error(v, f"Week '{wid}' has {omega3_meals} omega-3 fish meals, minimum is 2", wid)
-    elif fish_meals < 2:
+    if fish_meals < 2:
         error(v, f"Week '{wid}' has {fish_meals} fish meals, minimum is 2", wid)
     if legume_meals < 3:
         error(v, f"Week '{wid}' has {legume_meals} legume meals, minimum is 3", wid)

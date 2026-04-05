@@ -179,13 +179,13 @@ def select_dinners(pool, days, ingredient_map, recipes_by_id,
                 chosen = pick(omega3_pool, used, prev_protein, ingredient_map)
 
         if not chosen:
-            return None, f"NEED_RECIPE: dinner slot {i} ({day}) could not be filled"
+            return None, [f"NEED_RECIPE: dinner slot {i} ({day}) could not be filled"]
 
         assignments.append({"day": day, "recipeId": chosen["id"]})
         used.add(chosen["id"])
         prev_protein = dominant_protein(chosen, ingredient_map)
 
-    return assignments, None
+    return assignments, []
 
 
 def main():
