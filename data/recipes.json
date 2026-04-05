@@ -1,0 +1,827 @@
+[
+  {
+    "id": "oat-porridge-banana",
+    "nameRu": "Овсяная каша с бананом",
+    "mealType": "breakfast",
+    "activeMinutes": 10,
+    "totalMinutes": 10,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "rolled_oats", "amount": 300, "unit": "g" },
+      { "ingredientId": "milk", "amount": 600, "unit": "ml" },
+      { "ingredientId": "banana", "amount": 3, "unit": "pcs" },
+      { "ingredientId": "honey", "amount": 1, "unit": "tbsp" }
+    ],
+    "stepsRu": [
+      "Доведите молоко до кипения в кастрюле на среднем огне.",
+      "Добавьте овсяные хлопья, убавьте огонь и варите, помешивая, 5–7 минут до нужной густоты.",
+      "Разложите по тарелкам, сверху положите нарезанный банан и полейте мёдом."
+    ],
+    "storageNote": "Употреблять сразу. Остывшая каша теряет текстуру.",
+    "substitutionsNote": "Молоко можно заменить растительным.",
+    "tags": ["quick", "vegetarian"],
+    "nutrition": { "kcalPerServing": 380, "proteinG": 12, "fatG": 8, "carbsG": 65, "fiberG": 5 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": false, "childSafe": true,
+      "containsFish": false, "containsOmega3Fish": false, "containsLegumes": false,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": false,
+      "containsDairy": true, "highProtein": false, "highFiber": false
+    },
+    "createdAt": "2026-04-04",
+    "version": 1
+  },
+  {
+    "id": "salmon-lentil-bowl",
+    "nameRu": "Боул с лососем и чечевицей",
+    "mealType": "dinner",
+    "activeMinutes": 25,
+    "totalMinutes": 35,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "salmon_fillet", "amount": 600, "unit": "g" },
+      { "ingredientId": "green_lentils", "amount": 250, "unit": "g" },
+      { "ingredientId": "olive_oil", "amount": 2, "unit": "tbsp" }
+    ],
+    "stepsRu": [
+      "Промойте чечевицу и отварите в подсоленной воде 20 минут до мягкости.",
+      "Нарежьте лосось на порционные куски, посолите и поперчите.",
+      "Разогрейте оливковое масло на сковороде и обжарьте лосось по 3–4 минуты с каждой стороны.",
+      "Подавайте лосось на подушке из чечевицы."
+    ],
+    "storageNote": "Хранить в холодильнике до 2 дней. Разогревать раздельно.",
+    "substitutionsNote": "Лосось можно заменить форелью в равном количестве.",
+    "tags": ["fish", "legumes", "high-protein", "omega3"],
+    "nutrition": { "kcalPerServing": 480, "proteinG": 42, "fatG": 18, "carbsG": 32, "fiberG": 8 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": true, "childSafe": true,
+      "containsFish": true, "containsOmega3Fish": true, "containsLegumes": true,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": false,
+      "containsDairy": false, "highProtein": true, "highFiber": true
+    },
+    "createdAt": "2026-04-04",
+    "version": 1
+  },
+  {
+    "id": "chicken-rice-pilaf",
+    "nameRu": "Куриный плов",
+    "mealType": "dinner",
+    "activeMinutes": 20,
+    "totalMinutes": 45,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "chicken_breast", "amount": 600, "unit": "g" },
+      { "ingredientId": "rice", "amount": 300, "unit": "g" },
+      { "ingredientId": "olive_oil", "amount": 2, "unit": "tbsp" },
+      { "ingredientId": "carrot", "amount": 200, "unit": "g" },
+      { "ingredientId": "onion", "amount": 1, "unit": "pcs" }
+    ],
+    "stepsRu": [
+      "Нарежьте куриное филе кубиками, морковь — брусочками, лук — полукольцами.",
+      "Обжарьте лук и морковь на масле до мягкости, 5 минут.",
+      "Добавьте курицу, обжарьте до золотистой корочки.",
+      "Добавьте промытый рис, залейте 600 мл воды, посолите.",
+      "Накройте крышкой и готовьте на минимальном огне 25 минут. Дайте настояться 5 минут."
+    ],
+    "storageNote": "Хранить в холодильнике до 3 дней. Хорошо разогревается.",
+    "substitutionsNote": "",
+    "tags": ["chicken", "one-pot"],
+    "nutrition": { "kcalPerServing": 520, "proteinG": 45, "fatG": 12, "carbsG": 55, "fiberG": 2 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": true, "childSafe": true,
+      "containsFish": false, "containsOmega3Fish": false, "containsLegumes": false,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": false,
+      "containsDairy": false, "highProtein": true, "highFiber": false
+    },
+    "createdAt": "2026-04-04",
+    "version": 1
+  },
+  {
+    "id": "yogurt-walnut-bowl",
+    "nameRu": "Йогурт с грецкими орехами и черникой",
+    "mealType": "snack",
+    "activeMinutes": 5,
+    "totalMinutes": 5,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "natural_yogurt", "amount": 450, "unit": "g" },
+      { "ingredientId": "walnuts", "amount": 60, "unit": "g" },
+      { "ingredientId": "frozen_blueberries", "amount": 150, "unit": "g" },
+      { "ingredientId": "honey", "amount": 1, "unit": "tbsp" }
+    ],
+    "stepsRu": [
+      "Разморозьте чернику при комнатной температуре или в микроволновке.",
+      "Разложите йогурт по стаканам, сверху добавьте чернику и грецкие орехи.",
+      "Полейте мёдом."
+    ],
+    "storageNote": "Употреблять сразу после приготовления.",
+    "substitutionsNote": "Чернику можно заменить любыми замороженными ягодами.",
+    "tags": ["quick", "vegetarian", "no-cook"],
+    "nutrition": { "kcalPerServing": 220, "proteinG": 9, "fatG": 12, "carbsG": 20, "fiberG": 2 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": false, "childSafe": true,
+      "containsFish": false, "containsOmega3Fish": false, "containsLegumes": false,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": false,
+      "containsDairy": true, "highProtein": false, "highFiber": false
+    },
+    "createdAt": "2026-04-04",
+    "version": 1
+  },
+  {
+    "id": "scrambled-eggs-with-vegetables",
+    "nameRu": "Яичница-болтунья с овощами",
+    "mealType": "breakfast",
+    "activeMinutes": 12,
+    "totalMinutes": 12,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "eggs", "amount": 9, "unit": "pcs" },
+      { "ingredientId": "tomatoes", "amount": 300, "unit": "g" },
+      { "ingredientId": "bell_pepper", "amount": 1, "unit": "pcs" },
+      { "ingredientId": "olive_oil", "amount": 1, "unit": "tbsp" }
+    ],
+    "stepsRu": [
+      "Нарежьте помидоры кубиками, перец — тонкими полосками.",
+      "Разогрейте масло на сковороде, обжарьте перец 3 минуты, добавьте помидоры, тушите ещё 2 минуты.",
+      "Взбейте яйца с щепоткой соли, влейте в сковороду.",
+      "Готовьте на среднем огне, помешивая, 3–4 минуты до готовности."
+    ],
+    "storageNote": "Употреблять сразу.",
+    "substitutionsNote": "Перец можно заменить кабачком.",
+    "tags": ["quick", "eggs", "high-protein"],
+    "nutrition": { "kcalPerServing": 260, "proteinG": 18, "fatG": 16, "carbsG": 8, "fiberG": 2 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": false, "childSafe": true,
+      "containsFish": false, "containsOmega3Fish": false, "containsLegumes": false,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": true,
+      "containsDairy": false, "highProtein": true, "highFiber": false
+    },
+    "createdAt": "2026-04-05",
+    "version": 1
+  },
+  {
+    "id": "cottage-cheese-berries",
+    "nameRu": "Творог с ягодами и мёдом",
+    "mealType": "breakfast",
+    "activeMinutes": 5,
+    "totalMinutes": 5,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "cottage_cheese", "amount": 600, "unit": "g" },
+      { "ingredientId": "frozen_blueberries", "amount": 180, "unit": "g" },
+      { "ingredientId": "honey", "amount": 2, "unit": "tbsp" }
+    ],
+    "stepsRu": [
+      "Разморозьте ягоды при комнатной температуре.",
+      "Разложите творог по тарелкам, сверху выложите ягоды.",
+      "Полейте мёдом."
+    ],
+    "storageNote": "Употреблять сразу.",
+    "substitutionsNote": "Черника заменима замороженной клубникой или другими ягодами.",
+    "tags": ["quick", "no-cook", "high-protein", "vegetarian"],
+    "nutrition": { "kcalPerServing": 220, "proteinG": 20, "fatG": 5, "carbsG": 26, "fiberG": 2 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": false, "childSafe": true,
+      "containsFish": false, "containsOmega3Fish": false, "containsLegumes": false,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": false,
+      "containsDairy": true, "highProtein": true, "highFiber": false
+    },
+    "createdAt": "2026-04-05",
+    "version": 1
+  },
+  {
+    "id": "buckwheat-porridge-milk",
+    "nameRu": "Гречневая каша на молоке",
+    "mealType": "breakfast",
+    "activeMinutes": 10,
+    "totalMinutes": 25,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "buckwheat", "amount": 300, "unit": "g" },
+      { "ingredientId": "milk", "amount": 450, "unit": "ml" },
+      { "ingredientId": "butter", "amount": 30, "unit": "g" },
+      { "ingredientId": "honey", "amount": 1, "unit": "tbsp" }
+    ],
+    "stepsRu": [
+      "Промойте гречку, залейте 600 мл воды, доведите до кипения.",
+      "Убавьте огонь, варите 15 минут под крышкой.",
+      "Добавьте горячее молоко, масло, перемешайте и дайте настояться 5 минут.",
+      "Подавайте с мёдом."
+    ],
+    "storageNote": "Хранить в холодильнике до 2 дней. Разогревать с добавлением молока.",
+    "substitutionsNote": "Молоко можно заменить растительным.",
+    "tags": ["vegetarian", "gluten-free"],
+    "nutrition": { "kcalPerServing": 350, "proteinG": 12, "fatG": 10, "carbsG": 52, "fiberG": 5 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": false, "childSafe": true,
+      "containsFish": false, "containsOmega3Fish": false, "containsLegumes": false,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": false,
+      "containsDairy": true, "highProtein": false, "highFiber": true
+    },
+    "createdAt": "2026-04-05",
+    "version": 1
+  },
+  {
+    "id": "granola-yogurt-strawberry",
+    "nameRu": "Гранола с йогуртом и клубникой",
+    "mealType": "breakfast",
+    "activeMinutes": 5,
+    "totalMinutes": 5,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "granola", "amount": 240, "unit": "g" },
+      { "ingredientId": "natural_yogurt", "amount": 450, "unit": "g" },
+      { "ingredientId": "frozen_strawberries", "amount": 180, "unit": "g" }
+    ],
+    "stepsRu": [
+      "Разморозьте клубнику при комнатной температуре.",
+      "Выложите йогурт в стаканы или миски.",
+      "Сверху насыпьте гранолу и добавьте ягоды."
+    ],
+    "storageNote": "Гранолу добавляйте непосредственно перед подачей, чтобы не размокла.",
+    "substitutionsNote": "Клубнику можно заменить любыми ягодами.",
+    "tags": ["quick", "no-cook", "vegetarian"],
+    "nutrition": { "kcalPerServing": 320, "proteinG": 11, "fatG": 8, "carbsG": 50, "fiberG": 4 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": false, "childSafe": true,
+      "containsFish": false, "containsOmega3Fish": false, "containsLegumes": false,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": false,
+      "containsDairy": true, "highProtein": false, "highFiber": false
+    },
+    "createdAt": "2026-04-05",
+    "version": 1
+  },
+  {
+    "id": "omelette-with-cheese",
+    "nameRu": "Омлет с сыром",
+    "mealType": "breakfast",
+    "activeMinutes": 10,
+    "totalMinutes": 10,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "eggs", "amount": 9, "unit": "pcs" },
+      { "ingredientId": "milk", "amount": 90, "unit": "ml" },
+      { "ingredientId": "hard_cheese", "amount": 90, "unit": "g" },
+      { "ingredientId": "butter", "amount": 20, "unit": "g" }
+    ],
+    "stepsRu": [
+      "Взбейте яйца с молоком и щепоткой соли до однородности.",
+      "Натрите сыр на крупной тёрке.",
+      "Растопите масло на сковороде на среднем огне.",
+      "Вылейте яичную смесь, накройте крышкой и готовьте 4–5 минут.",
+      "Посыпьте тёртым сыром, сложите пополам и снимите с огня."
+    ],
+    "storageNote": "Употреблять сразу.",
+    "substitutionsNote": "Твёрдый сыр можно заменить любым другим расплавляемым сыром.",
+    "tags": ["quick", "eggs", "high-protein"],
+    "nutrition": { "kcalPerServing": 310, "proteinG": 22, "fatG": 22, "carbsG": 3, "fiberG": 0 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": false, "childSafe": true,
+      "containsFish": false, "containsOmega3Fish": false, "containsLegumes": false,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": true,
+      "containsDairy": true, "highProtein": true, "highFiber": false
+    },
+    "createdAt": "2026-04-05",
+    "version": 1
+  },
+  {
+    "id": "millet-pumpkin-porridge",
+    "nameRu": "Пшённая каша с тыквой",
+    "mealType": "breakfast",
+    "activeMinutes": 10,
+    "totalMinutes": 30,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "millet", "amount": 240, "unit": "g" },
+      { "ingredientId": "pumpkin", "amount": 300, "unit": "g" },
+      { "ingredientId": "milk", "amount": 450, "unit": "ml" },
+      { "ingredientId": "butter", "amount": 20, "unit": "g" },
+      { "ingredientId": "honey", "amount": 1, "unit": "tbsp" }
+    ],
+    "stepsRu": [
+      "Очистите тыкву и нарежьте кубиками 1 см.",
+      "Промойте пшено несколько раз до прозрачной воды.",
+      "В кастрюле доведите 400 мл воды до кипения, добавьте пшено и тыкву.",
+      "Варите на среднем огне 10 минут, влейте молоко, убавьте огонь.",
+      "Готовьте ещё 15 минут, помешивая. Добавьте масло и мёд."
+    ],
+    "storageNote": "Хранить в холодильнике до 2 дней. Разогревать с добавлением молока.",
+    "substitutionsNote": "Тыкву можно заменить морковью.",
+    "tags": ["vegetarian", "gluten-free"],
+    "nutrition": { "kcalPerServing": 340, "proteinG": 9, "fatG": 8, "carbsG": 58, "fiberG": 4 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": false, "childSafe": true,
+      "containsFish": false, "containsOmega3Fish": false, "containsLegumes": false,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": false,
+      "containsDairy": true, "highProtein": false, "highFiber": false
+    },
+    "createdAt": "2026-04-05",
+    "version": 1
+  },
+  {
+    "id": "avocado-toast-egg",
+    "nameRu": "Тост с авокадо и яйцом",
+    "mealType": "breakfast",
+    "activeMinutes": 12,
+    "totalMinutes": 12,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "whole_wheat_bread", "amount": 6, "unit": "pcs" },
+      { "ingredientId": "avocado", "amount": 2, "unit": "pcs" },
+      { "ingredientId": "eggs", "amount": 3, "unit": "pcs" },
+      { "ingredientId": "lemon", "amount": 1, "unit": "pcs" },
+      { "ingredientId": "olive_oil", "amount": 1, "unit": "tbsp" }
+    ],
+    "stepsRu": [
+      "Поджарьте хлеб в тостере.",
+      "Разомните авокадо вилкой, добавьте сок половины лимона, соль.",
+      "Пожарьте яйца «в мешочек» на оливковом масле, 3 минуты на среднем огне.",
+      "Намажьте авокадо на тосты, сверху положите яйцо."
+    ],
+    "storageNote": "Употреблять сразу — авокадо темнеет при хранении.",
+    "substitutionsNote": "Цельнозерновой хлеб можно заменить ржаным хлебцем.",
+    "tags": ["quick", "eggs", "high-protein"],
+    "nutrition": { "kcalPerServing": 380, "proteinG": 14, "fatG": 22, "carbsG": 30, "fiberG": 7 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": false, "childSafe": true,
+      "containsFish": false, "containsOmega3Fish": false, "containsLegumes": false,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": true,
+      "containsDairy": false, "highProtein": false, "highFiber": true
+    },
+    "createdAt": "2026-04-05",
+    "version": 1
+  },
+  {
+    "id": "baked-mackerel-vegetables",
+    "nameRu": "Запечённая скумбрия с овощами",
+    "mealType": "dinner",
+    "activeMinutes": 15,
+    "totalMinutes": 35,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "mackerel_fillet", "amount": 600, "unit": "g" },
+      { "ingredientId": "zucchini", "amount": 400, "unit": "g" },
+      { "ingredientId": "carrot", "amount": 200, "unit": "g" },
+      { "ingredientId": "lemon", "amount": 1, "unit": "pcs" },
+      { "ingredientId": "olive_oil", "amount": 2, "unit": "tbsp" }
+    ],
+    "stepsRu": [
+      "Разогрейте духовку до 200°C.",
+      "Нарежьте кабачок и морковь кружочками, выложите на противень, сбрызните маслом.",
+      "Положите филе скумбрии поверх овощей, посолите, полейте лимонным соком.",
+      "Запекайте 20 минут до готовности рыбы."
+    ],
+    "storageNote": "Хранить в холодильнике до 1 дня.",
+    "substitutionsNote": "Скумбрию можно заменить сельдью или форелью.",
+    "tags": ["fish", "omega3", "baked"],
+    "nutrition": { "kcalPerServing": 420, "proteinG": 36, "fatG": 24, "carbsG": 10, "fiberG": 3 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": false, "childSafe": true,
+      "containsFish": true, "containsOmega3Fish": true, "containsLegumes": false,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": false,
+      "containsDairy": false, "highProtein": true, "highFiber": false
+    },
+    "createdAt": "2026-04-05",
+    "version": 1
+  },
+  {
+    "id": "trout-with-buckwheat-spinach",
+    "nameRu": "Форель с гречкой и шпинатом",
+    "mealType": "dinner",
+    "activeMinutes": 20,
+    "totalMinutes": 30,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "trout_fillet", "amount": 600, "unit": "g" },
+      { "ingredientId": "buckwheat", "amount": 240, "unit": "g" },
+      { "ingredientId": "frozen_spinach", "amount": 200, "unit": "g" },
+      { "ingredientId": "lemon", "amount": 1, "unit": "pcs" },
+      { "ingredientId": "olive_oil", "amount": 2, "unit": "tbsp" }
+    ],
+    "stepsRu": [
+      "Промойте гречку, отварите в двойном объёме подсоленной воды 15 минут.",
+      "Разморозьте шпинат, отожмите лишнюю жидкость.",
+      "Обжарьте форель на оливковом масле по 4 минуты с каждой стороны.",
+      "Смешайте гречку со шпинатом, выложите рядом с форелью.",
+      "Полейте лимонным соком перед подачей."
+    ],
+    "storageNote": "Хранить в холодильнике до 2 дней.",
+    "substitutionsNote": "Форель можно заменить лососем.",
+    "tags": ["fish", "omega3", "high-protein"],
+    "nutrition": { "kcalPerServing": 460, "proteinG": 40, "fatG": 16, "carbsG": 36, "fiberG": 5 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": true, "childSafe": true,
+      "containsFish": true, "containsOmega3Fish": true, "containsLegumes": false,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": false,
+      "containsDairy": false, "highProtein": true, "highFiber": true
+    },
+    "createdAt": "2026-04-05",
+    "version": 1
+  },
+  {
+    "id": "mackerel-green-lentil-soup",
+    "nameRu": "Суп из скумбрии с зелёной чечевицей",
+    "mealType": "dinner",
+    "activeMinutes": 20,
+    "totalMinutes": 40,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "mackerel_fillet", "amount": 450, "unit": "g" },
+      { "ingredientId": "green_lentils", "amount": 180, "unit": "g" },
+      { "ingredientId": "carrot", "amount": 150, "unit": "g" },
+      { "ingredientId": "onion", "amount": 1, "unit": "pcs" },
+      { "ingredientId": "garlic", "amount": 2, "unit": "pcs" },
+      { "ingredientId": "olive_oil", "amount": 1, "unit": "tbsp" }
+    ],
+    "stepsRu": [
+      "Промойте чечевицу. Нарежьте морковь кубиками, лук — мелко, чеснок измельчите.",
+      "Обжарьте лук и морковь на масле 5 минут, добавьте чеснок.",
+      "Влейте 1,2 л воды, добавьте чечевицу, варите 20 минут.",
+      "Добавьте кусочки скумбрии, варите ещё 10 минут.",
+      "Посолите, поперчите по вкусу."
+    ],
+    "storageNote": "Хранить в холодильнике до 2 дней.",
+    "substitutionsNote": "Скумбрию можно заменить консервированным тунцом.",
+    "tags": ["fish", "omega3", "legumes", "soup"],
+    "nutrition": { "kcalPerServing": 400, "proteinG": 34, "fatG": 14, "carbsG": 30, "fiberG": 9 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": true, "childSafe": true,
+      "containsFish": true, "containsOmega3Fish": true, "containsLegumes": true,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": false,
+      "containsDairy": false, "highProtein": true, "highFiber": true
+    },
+    "createdAt": "2026-04-05",
+    "version": 1
+  },
+  {
+    "id": "chickpea-vegetable-curry",
+    "nameRu": "Карри с нутом и овощами",
+    "mealType": "dinner",
+    "activeMinutes": 25,
+    "totalMinutes": 30,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "chickpeas", "amount": 480, "unit": "g" },
+      { "ingredientId": "canned_tomatoes", "amount": 400, "unit": "g" },
+      { "ingredientId": "onion", "amount": 1, "unit": "pcs" },
+      { "ingredientId": "garlic", "amount": 3, "unit": "pcs" },
+      { "ingredientId": "spinach", "amount": 150, "unit": "g" },
+      { "ingredientId": "olive_oil", "amount": 2, "unit": "tbsp" },
+      { "ingredientId": "cumin", "amount": 1, "unit": "tsp" },
+      { "ingredientId": "turmeric", "amount": 1, "unit": "tsp" },
+      { "ingredientId": "rice", "amount": 240, "unit": "g" }
+    ],
+    "stepsRu": [
+      "Отварите рис согласно инструкции на упаковке.",
+      "Мелко нарежьте лук и чеснок. Обжарьте на масле 4 минуты.",
+      "Добавьте тмин и куркуму, обжаривайте 1 минуту.",
+      "Добавьте консервированные томаты и нут, тушите 15 минут.",
+      "Добавьте шпинат, тушите ещё 3 минуты. Подавайте с рисом."
+    ],
+    "storageNote": "Хранить в холодильнике до 3 дней. Хорошо разогревается.",
+    "substitutionsNote": "Нут можно заменить белой фасолью.",
+    "tags": ["legumes", "vegetarian", "high-protein"],
+    "nutrition": { "kcalPerServing": 480, "proteinG": 18, "fatG": 10, "carbsG": 76, "fiberG": 12 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": true, "childSafe": true,
+      "containsFish": false, "containsOmega3Fish": false, "containsLegumes": true,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": false,
+      "containsDairy": false, "highProtein": false, "highFiber": true
+    },
+    "createdAt": "2026-04-05",
+    "version": 1
+  },
+  {
+    "id": "red-lentil-soup",
+    "nameRu": "Суп из красной чечевицы",
+    "mealType": "dinner",
+    "activeMinutes": 15,
+    "totalMinutes": 30,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "red_lentils", "amount": 240, "unit": "g" },
+      { "ingredientId": "carrot", "amount": 150, "unit": "g" },
+      { "ingredientId": "onion", "amount": 1, "unit": "pcs" },
+      { "ingredientId": "garlic", "amount": 2, "unit": "pcs" },
+      { "ingredientId": "canned_tomatoes", "amount": 200, "unit": "g" },
+      { "ingredientId": "olive_oil", "amount": 1, "unit": "tbsp" },
+      { "ingredientId": "cumin", "amount": 1, "unit": "tsp" }
+    ],
+    "stepsRu": [
+      "Нарежьте лук и морковь кубиками, измельчите чеснок.",
+      "Обжарьте лук и морковь на масле 5 минут, добавьте чеснок и тмин.",
+      "Добавьте промытую чечевицу, томаты и 900 мл воды.",
+      "Варите на среднем огне 20 минут до мягкости чечевицы.",
+      "Пробейте суп погружным блендером до кремовой консистенции, посолите."
+    ],
+    "storageNote": "Хранить в холодильнике до 3 дней. Загустевает при остывании — разбавить водой при разогреве.",
+    "substitutionsNote": "",
+    "tags": ["legumes", "vegetarian", "soup", "high-fiber"],
+    "nutrition": { "kcalPerServing": 320, "proteinG": 18, "fatG": 6, "carbsG": 50, "fiberG": 14 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": true, "childSafe": true,
+      "containsFish": false, "containsOmega3Fish": false, "containsLegumes": true,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": false,
+      "containsDairy": false, "highProtein": false, "highFiber": true
+    },
+    "createdAt": "2026-04-05",
+    "version": 1
+  },
+  {
+    "id": "white-bean-spinach-stew",
+    "nameRu": "Рагу из белой фасоли со шпинатом",
+    "mealType": "dinner",
+    "activeMinutes": 20,
+    "totalMinutes": 25,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "canned_white_beans", "amount": 600, "unit": "g" },
+      { "ingredientId": "frozen_spinach", "amount": 250, "unit": "g" },
+      { "ingredientId": "canned_tomatoes", "amount": 400, "unit": "g" },
+      { "ingredientId": "garlic", "amount": 3, "unit": "pcs" },
+      { "ingredientId": "onion", "amount": 1, "unit": "pcs" },
+      { "ingredientId": "olive_oil", "amount": 2, "unit": "tbsp" }
+    ],
+    "stepsRu": [
+      "Мелко нарежьте лук и чеснок. Разморозьте шпинат.",
+      "Обжарьте лук на масле 4 минуты, добавьте чеснок, готовьте ещё минуту.",
+      "Добавьте консервированные томаты, тушите 5 минут.",
+      "Добавьте фасоль и шпинат, тушите 10 минут. Посолите."
+    ],
+    "storageNote": "Хранить в холодильнике до 3 дней.",
+    "substitutionsNote": "Белую фасоль можно заменить нутом.",
+    "tags": ["legumes", "vegetarian", "high-fiber"],
+    "nutrition": { "kcalPerServing": 340, "proteinG": 16, "fatG": 9, "carbsG": 46, "fiberG": 14 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": true, "childSafe": true,
+      "containsFish": false, "containsOmega3Fish": false, "containsLegumes": true,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": false,
+      "containsDairy": false, "highProtein": false, "highFiber": true
+    },
+    "createdAt": "2026-04-05",
+    "version": 1
+  },
+  {
+    "id": "turkey-roasted-vegetables",
+    "nameRu": "Филе индейки с запечёнными овощами",
+    "mealType": "dinner",
+    "activeMinutes": 15,
+    "totalMinutes": 40,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "turkey_breast", "amount": 600, "unit": "g" },
+      { "ingredientId": "zucchini", "amount": 300, "unit": "g" },
+      { "ingredientId": "bell_pepper", "amount": 2, "unit": "pcs" },
+      { "ingredientId": "garlic", "amount": 3, "unit": "pcs" },
+      { "ingredientId": "olive_oil", "amount": 2, "unit": "tbsp" }
+    ],
+    "stepsRu": [
+      "Разогрейте духовку до 200°C.",
+      "Нарежьте индейку крупными кусками, кабачок и перец — дольками.",
+      "Всё выложите на противень, полейте маслом, добавьте измельчённый чеснок, посолите.",
+      "Запекайте 25 минут до готовности мяса."
+    ],
+    "storageNote": "Хранить в холодильнике до 2 дней.",
+    "substitutionsNote": "Индейку можно заменить куриным филе.",
+    "tags": ["poultry", "baked", "high-protein"],
+    "nutrition": { "kcalPerServing": 380, "proteinG": 46, "fatG": 12, "carbsG": 14, "fiberG": 4 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": true, "childSafe": true,
+      "containsFish": false, "containsOmega3Fish": false, "containsLegumes": false,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": false,
+      "containsDairy": false, "highProtein": true, "highFiber": false
+    },
+    "createdAt": "2026-04-05",
+    "version": 1
+  },
+  {
+    "id": "chicken-vegetable-stew",
+    "nameRu": "Тушёная курица с овощами",
+    "mealType": "dinner",
+    "activeMinutes": 20,
+    "totalMinutes": 40,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "chicken_breast", "amount": 600, "unit": "g" },
+      { "ingredientId": "carrot", "amount": 200, "unit": "g" },
+      { "ingredientId": "zucchini", "amount": 250, "unit": "g" },
+      { "ingredientId": "tomatoes", "amount": 300, "unit": "g" },
+      { "ingredientId": "onion", "amount": 1, "unit": "pcs" },
+      { "ingredientId": "garlic", "amount": 2, "unit": "pcs" },
+      { "ingredientId": "olive_oil", "amount": 2, "unit": "tbsp" }
+    ],
+    "stepsRu": [
+      "Нарежьте курицу кусочками, овощи — средними кубиками.",
+      "Обжарьте лук и морковь на масле 5 минут.",
+      "Добавьте курицу, обжаривайте 5 минут до белого цвета.",
+      "Добавьте кабачок, томаты, чеснок, посолите.",
+      "Тушите под крышкой на среднем огне 20 минут."
+    ],
+    "storageNote": "Хранить в холодильнике до 3 дней.",
+    "substitutionsNote": "",
+    "tags": ["chicken", "one-pot"],
+    "nutrition": { "kcalPerServing": 360, "proteinG": 44, "fatG": 12, "carbsG": 14, "fiberG": 4 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": true, "childSafe": true,
+      "containsFish": false, "containsOmega3Fish": false, "containsLegumes": false,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": false,
+      "containsDairy": false, "highProtein": true, "highFiber": false
+    },
+    "createdAt": "2026-04-05",
+    "version": 1
+  },
+  {
+    "id": "vegetable-minestrone",
+    "nameRu": "Овощной минестроне",
+    "mealType": "lunch",
+    "activeMinutes": 20,
+    "totalMinutes": 30,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "carrot", "amount": 200, "unit": "g" },
+      { "ingredientId": "zucchini", "amount": 250, "unit": "g" },
+      { "ingredientId": "onion", "amount": 1, "unit": "pcs" },
+      { "ingredientId": "canned_tomatoes", "amount": 400, "unit": "g" },
+      { "ingredientId": "garlic", "amount": 2, "unit": "pcs" },
+      { "ingredientId": "olive_oil", "amount": 1, "unit": "tbsp" },
+      { "ingredientId": "vegetable_broth", "amount": 900, "unit": "ml" }
+    ],
+    "stepsRu": [
+      "Нарежьте все овощи небольшими кубиками.",
+      "Обжарьте лук, морковь и чеснок на масле 5 минут.",
+      "Добавьте кабачок, томаты и бульон, доведите до кипения.",
+      "Варите 15 минут, посолите и поперчите."
+    ],
+    "storageNote": "Хранить в холодильнике до 3 дней.",
+    "substitutionsNote": "Бульон можно заменить водой.",
+    "tags": ["vegetarian", "soup", "light"],
+    "nutrition": { "kcalPerServing": 160, "proteinG": 5, "fatG": 5, "carbsG": 24, "fiberG": 6 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": true, "childSafe": true,
+      "containsFish": false, "containsOmega3Fish": false, "containsLegumes": false,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": false,
+      "containsDairy": false, "highProtein": false, "highFiber": true
+    },
+    "createdAt": "2026-04-05",
+    "version": 1
+  },
+  {
+    "id": "buckwheat-chicken-bowl",
+    "nameRu": "Гречневый боул с курицей",
+    "mealType": "lunch",
+    "activeMinutes": 20,
+    "totalMinutes": 25,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "buckwheat", "amount": 240, "unit": "g" },
+      { "ingredientId": "chicken_breast", "amount": 450, "unit": "g" },
+      { "ingredientId": "spinach", "amount": 120, "unit": "g" },
+      { "ingredientId": "olive_oil", "amount": 2, "unit": "tbsp" }
+    ],
+    "stepsRu": [
+      "Отварите гречку в подсоленной воде 15 минут.",
+      "Нарежьте курицу тонкими полосками, обжарьте на масле до готовности, 8 минут.",
+      "Добавьте шпинат к курице, тушите 2 минуты до увядания.",
+      "Выложите гречку в тарелки, сверху — курицу со шпинатом."
+    ],
+    "storageNote": "Хранить в холодильнике до 2 дней.",
+    "substitutionsNote": "Курицу можно заменить индейкой.",
+    "tags": ["chicken", "high-protein"],
+    "nutrition": { "kcalPerServing": 420, "proteinG": 38, "fatG": 10, "carbsG": 42, "fiberG": 5 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": true, "childSafe": true,
+      "containsFish": false, "containsOmega3Fish": false, "containsLegumes": false,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": false,
+      "containsDairy": false, "highProtein": true, "highFiber": true
+    },
+    "createdAt": "2026-04-05",
+    "version": 1
+  },
+  {
+    "id": "egg-vegetable-salad",
+    "nameRu": "Салат из яиц и овощей",
+    "mealType": "lunch",
+    "activeMinutes": 15,
+    "totalMinutes": 20,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "eggs", "amount": 6, "unit": "pcs" },
+      { "ingredientId": "tomatoes", "amount": 300, "unit": "g" },
+      { "ingredientId": "bell_pepper", "amount": 2, "unit": "pcs" },
+      { "ingredientId": "olive_oil", "amount": 2, "unit": "tbsp" },
+      { "ingredientId": "lemon", "amount": 1, "unit": "pcs" }
+    ],
+    "stepsRu": [
+      "Сварите яйца вкрутую (10 минут), охладите и очистите.",
+      "Нарежьте томаты дольками, перец — полосками, яйца — четвертинками.",
+      "Смешайте всё в миске, заправьте маслом и лимонным соком.",
+      "Посолите, поперчите по вкусу."
+    ],
+    "storageNote": "Хранить в холодильнике до 1 дня.",
+    "substitutionsNote": "",
+    "tags": ["eggs", "quick", "light"],
+    "nutrition": { "kcalPerServing": 240, "proteinG": 14, "fatG": 16, "carbsG": 10, "fiberG": 3 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": false, "childSafe": true,
+      "containsFish": false, "containsOmega3Fish": false, "containsLegumes": false,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": true,
+      "containsDairy": false, "highProtein": false, "highFiber": false
+    },
+    "createdAt": "2026-04-05",
+    "version": 1
+  },
+  {
+    "id": "banana-cottage-cheese-snack",
+    "nameRu": "Творог с бананом",
+    "mealType": "snack",
+    "activeMinutes": 5,
+    "totalMinutes": 5,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "cottage_cheese", "amount": 450, "unit": "g" },
+      { "ingredientId": "banana", "amount": 3, "unit": "pcs" },
+      { "ingredientId": "honey", "amount": 1, "unit": "tbsp" }
+    ],
+    "stepsRu": [
+      "Разложите творог по тарелкам.",
+      "Нарежьте банан кружочками, выложите поверх творога.",
+      "Полейте мёдом."
+    ],
+    "storageNote": "Употреблять сразу.",
+    "substitutionsNote": "Банан можно заменить любым фруктом без косточки.",
+    "tags": ["quick", "no-cook", "high-protein"],
+    "nutrition": { "kcalPerServing": 200, "proteinG": 16, "fatG": 4, "carbsG": 28, "fiberG": 2 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": false, "childSafe": true,
+      "containsFish": false, "containsOmega3Fish": false, "containsLegumes": false,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": false,
+      "containsDairy": true, "highProtein": true, "highFiber": false
+    },
+    "createdAt": "2026-04-05",
+    "version": 1
+  },
+  {
+    "id": "vegetable-sticks-yogurt-dip",
+    "nameRu": "Овощные палочки с йогуртовым соусом",
+    "mealType": "snack",
+    "activeMinutes": 10,
+    "totalMinutes": 10,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "carrot", "amount": 300, "unit": "g" },
+      { "ingredientId": "bell_pepper", "amount": 2, "unit": "pcs" },
+      { "ingredientId": "natural_yogurt", "amount": 240, "unit": "g" },
+      { "ingredientId": "garlic", "amount": 1, "unit": "pcs" },
+      { "ingredientId": "lemon", "amount": 1, "unit": "pcs" }
+    ],
+    "stepsRu": [
+      "Нарежьте морковь и перец длинными палочками.",
+      "Измельчите чеснок, смешайте с йогуртом и лимонным соком, посолите.",
+      "Подавайте овощи с соусом для окунания."
+    ],
+    "storageNote": "Соус хранить в холодильнике до 1 дня. Овощи нарезать перед подачей.",
+    "substitutionsNote": "Можно добавить огурец или брокколи.",
+    "tags": ["quick", "vegetarian", "light"],
+    "nutrition": { "kcalPerServing": 110, "proteinG": 6, "fatG": 2, "carbsG": 18, "fiberG": 4 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": false, "childSafe": true,
+      "containsFish": false, "containsOmega3Fish": false, "containsLegumes": false,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": false,
+      "containsDairy": true, "highProtein": false, "highFiber": false
+    },
+    "createdAt": "2026-04-05",
+    "version": 1
+  },
+  {
+    "id": "cottage-cheese-pancakes",
+    "nameRu": "Творожные оладьи с мёдом",
+    "mealType": "breakfast",
+    "activeMinutes": 20,
+    "totalMinutes": 20,
+    "servings": 3,
+    "ingredients": [
+      { "ingredientId": "cottage_cheese", "amount": 450, "unit": "g" },
+      { "ingredientId": "eggs", "amount": 2, "unit": "pcs" },
+      { "ingredientId": "wheat_flour", "amount": 5, "unit": "tbsp" },
+      { "ingredientId": "honey", "amount": 2, "unit": "tbsp" },
+      { "ingredientId": "butter", "amount": 1, "unit": "tbsp" }
+    ],
+    "stepsRu": [
+      "Смешайте творог, яйца и муку до однородного теста. Добавьте щепотку соли.",
+      "Влажными руками сформируйте 9 оладий.",
+      "Разогрейте сковороду с маслом на среднем огне, обжарьте оладьи по 3 мин с каждой стороны до золотистой корочки.",
+      "Подавайте горячими, полив мёдом."
+    ],
+    "storageNote": "Хранить в холодильнике до 2 дней. Разогревать на сухой сковороде.",
+    "substitutionsNote": "Мёд можно заменить вареньем без косточек (без слив и персиков).",
+    "tags": ["quick", "vegetarian", "high-protein"],
+    "nutrition": { "kcalPerServing": 320, "proteinG": 24, "fatG": 11, "carbsG": 30, "fiberG": 1 },
+    "flags": {
+      "weekdayFriendly": true, "leftoversFriendly": true, "childSafe": true,
+      "containsFish": false, "containsOmega3Fish": false, "containsLegumes": false,
+      "containsRedMeat": false, "containsSoy": false, "containsEggs": true,
+      "containsDairy": true, "highProtein": true, "highFiber": false
+    },
+    "createdAt": "2026-04-05",
+    "version": 1
+  }
+]

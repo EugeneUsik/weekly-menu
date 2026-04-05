@@ -1,0 +1,567 @@
+{
+  "version": 1,
+  "updatedAt": "2026-04-05",
+  "ingredients": {
+    "salmon_fillet": {
+      "id": "salmon_fillet",
+      "nameEn": "salmon fillet",
+      "nameRu": "Филе лосося",
+      "nameLt": "Lašišos filė",
+      "category": "fish",
+      "defaultUnit": "g",
+      "aliases": [
+        "лосось",
+        "семга",
+        "salmon"
+      ],
+      "barboraResolved": true
+    },
+    "green_lentils": {
+      "id": "green_lentils",
+      "nameEn": "green lentils",
+      "nameRu": "Зелёная чечевица",
+      "nameLt": "Žaliosios lęšiai",
+      "category": "legumes",
+      "defaultUnit": "g",
+      "aliases": [
+        "чечевица зелёная",
+        "чечевица",
+        "lentils"
+      ],
+      "barboraResolved": true
+    },
+    "red_lentils": {
+      "id": "red_lentils",
+      "nameEn": "red lentils",
+      "nameRu": "Красная чечевица",
+      "nameLt": "Raudonosios lęšiai",
+      "category": "legumes",
+      "defaultUnit": "g",
+      "aliases": [
+        "чечевица красная"
+      ],
+      "barboraResolved": true
+    },
+    "chickpeas": {
+      "id": "chickpeas",
+      "nameEn": "chickpeas",
+      "nameRu": "Нут",
+      "nameLt": "Avinžirniai",
+      "category": "legumes",
+      "defaultUnit": "g",
+      "aliases": [
+        "нут варёный",
+        "нут консервированный"
+      ],
+      "barboraResolved": true
+    },
+    "canned_white_beans": {
+      "id": "canned_white_beans",
+      "nameEn": "canned white beans",
+      "nameRu": "Белая фасоль консервированная",
+      "nameLt": "Konservuotos baltosios pupelės",
+      "category": "legumes",
+      "defaultUnit": "g",
+      "aliases": [
+        "фасоль белая",
+        "белая фасоль"
+      ],
+      "barboraResolved": true
+    },
+    "rolled_oats": {
+      "id": "rolled_oats",
+      "nameEn": "rolled oats",
+      "nameRu": "Овсяные хлопья",
+      "nameLt": "Avižiniai dribsniai",
+      "category": "grains",
+      "defaultUnit": "g",
+      "aliases": [
+        "овсянка",
+        "oats",
+        "oat flakes"
+      ],
+      "barboraResolved": true
+    },
+    "buckwheat": {
+      "id": "buckwheat",
+      "nameEn": "buckwheat",
+      "nameRu": "Гречневая крупа",
+      "nameLt": "Grikiai",
+      "category": "grains",
+      "defaultUnit": "g",
+      "aliases": [
+        "гречка",
+        "гречневая крупа"
+      ],
+      "barboraResolved": true
+    },
+    "millet": {
+      "id": "millet",
+      "nameEn": "millet",
+      "nameRu": "Пшено",
+      "nameLt": "Soros",
+      "category": "grains",
+      "defaultUnit": "g",
+      "aliases": [
+        "пшённая крупа"
+      ],
+      "barboraResolved": true
+    },
+    "rice": {
+      "id": "rice",
+      "nameEn": "rice",
+      "nameRu": "Рис",
+      "nameLt": "Ryžiai",
+      "category": "grains",
+      "defaultUnit": "g",
+      "aliases": [
+        "длиннозёрный рис",
+        "white rice"
+      ],
+      "barboraResolved": true
+    },
+    "whole_wheat_bread": {
+      "id": "whole_wheat_bread",
+      "nameEn": "whole wheat bread",
+      "nameRu": "Цельнозерновой хлеб",
+      "nameLt": "Viso grūdo duona",
+      "category": "grains",
+      "defaultUnit": "pcs",
+      "aliases": [
+        "хлеб цельнозерновой",
+        "ржаной хлеб"
+      ],
+      "barboraResolved": true
+    },
+    "granola": {
+      "id": "granola",
+      "nameEn": "granola",
+      "nameRu": "Гранола",
+      "nameLt": "Granola",
+      "category": "grains",
+      "defaultUnit": "g",
+      "aliases": [
+        "мюсли запечённые"
+      ],
+      "barboraResolved": true
+    },
+    "milk": {
+      "id": "milk",
+      "nameEn": "milk",
+      "nameRu": "Молоко",
+      "nameLt": "Pienas",
+      "category": "dairy",
+      "defaultUnit": "ml",
+      "aliases": [
+        "молоко коровье"
+      ],
+      "barboraResolved": true
+    },
+    "natural_yogurt": {
+      "id": "natural_yogurt",
+      "nameEn": "natural yogurt",
+      "nameRu": "Натуральный йогурт",
+      "nameLt": "Natūralus jogurtas",
+      "category": "dairy",
+      "defaultUnit": "g",
+      "aliases": [
+        "йогурт натуральный",
+        "plain yogurt"
+      ],
+      "barboraResolved": true
+    },
+    "cottage_cheese": {
+      "id": "cottage_cheese",
+      "nameEn": "cottage cheese",
+      "nameRu": "Творог",
+      "nameLt": "Varškė",
+      "category": "dairy",
+      "defaultUnit": "g",
+      "aliases": [
+        "творог 5%",
+        "творог 9%"
+      ],
+      "barboraResolved": true
+    },
+    "hard_cheese": {
+      "id": "hard_cheese",
+      "nameEn": "hard cheese",
+      "nameRu": "Твёрдый сыр",
+      "nameLt": "Kietasis sūris",
+      "category": "dairy",
+      "defaultUnit": "g",
+      "aliases": [
+        "сыр твёрдый",
+        "пармезан",
+        "гауда"
+      ],
+      "barboraResolved": true
+    },
+    "butter": {
+      "id": "butter",
+      "nameEn": "butter",
+      "nameRu": "Сливочное масло",
+      "nameLt": "Sviestas",
+      "category": "dairy",
+      "defaultUnit": "g",
+      "aliases": [
+        "масло сливочное"
+      ],
+      "barboraResolved": true
+    },
+    "eggs": {
+      "id": "eggs",
+      "nameEn": "eggs",
+      "nameRu": "Яйца",
+      "nameLt": "Kiaušiniai",
+      "category": "dairy",
+      "defaultUnit": "pcs",
+      "aliases": [
+        "яйцо",
+        "яйца куриные"
+      ],
+      "barboraResolved": true
+    },
+    "chicken_breast": {
+      "id": "chicken_breast",
+      "nameEn": "chicken breast",
+      "nameRu": "Куриное филе",
+      "nameLt": "Vištienos filė",
+      "category": "meat",
+      "defaultUnit": "g",
+      "aliases": [
+        "куриная грудка",
+        "chicken fillet",
+        "филе курицы"
+      ],
+      "barboraResolved": true
+    },
+    "turkey_breast": {
+      "id": "turkey_breast",
+      "nameEn": "turkey breast",
+      "nameRu": "Филе индейки",
+      "nameLt": "Kalakutienos filė",
+      "category": "meat",
+      "defaultUnit": "g",
+      "aliases": [
+        "индейка",
+        "грудка индейки"
+      ],
+      "barboraResolved": true
+    },
+    "mackerel_fillet": {
+      "id": "mackerel_fillet",
+      "nameEn": "mackerel fillet",
+      "nameRu": "Филе скумбрии",
+      "nameLt": "Skumbrių filė",
+      "category": "fish",
+      "defaultUnit": "g",
+      "aliases": [
+        "скумбрия",
+        "mackerel"
+      ],
+      "barboraResolved": true
+    },
+    "trout_fillet": {
+      "id": "trout_fillet",
+      "nameEn": "trout fillet",
+      "nameRu": "Филе форели",
+      "nameLt": "Upėtakio filė",
+      "category": "fish",
+      "defaultUnit": "g",
+      "aliases": [
+        "форель",
+        "trout"
+      ],
+      "barboraResolved": true
+    },
+    "avocado": {
+      "id": "avocado",
+      "nameEn": "avocado",
+      "nameRu": "Авокадо",
+      "nameLt": "Avokadas",
+      "category": "produce",
+      "defaultUnit": "pcs",
+      "aliases": [
+        "авокадо спелый"
+      ],
+      "barboraResolved": true
+    },
+    "banana": {
+      "id": "banana",
+      "nameEn": "banana",
+      "nameRu": "Банан",
+      "nameLt": "Bananas",
+      "category": "produce",
+      "defaultUnit": "pcs",
+      "aliases": [
+        "бананы"
+      ],
+      "barboraResolved": true
+    },
+    "tomatoes": {
+      "id": "tomatoes",
+      "nameEn": "tomatoes",
+      "nameRu": "Помидоры",
+      "nameLt": "Pomidorai",
+      "category": "produce",
+      "defaultUnit": "g",
+      "aliases": [
+        "томаты",
+        "помидор"
+      ],
+      "barboraResolved": true
+    },
+    "canned_tomatoes": {
+      "id": "canned_tomatoes",
+      "nameEn": "canned tomatoes",
+      "nameRu": "Томаты консервированные",
+      "nameLt": "Konservuoti pomidorai",
+      "category": "pantry",
+      "defaultUnit": "g",
+      "aliases": [
+        "томаты в собственном соку",
+        "консервированные помидоры"
+      ],
+      "barboraResolved": true
+    },
+    "bell_pepper": {
+      "id": "bell_pepper",
+      "nameEn": "bell pepper",
+      "nameRu": "Болгарский перец",
+      "nameLt": "Paprika",
+      "category": "produce",
+      "defaultUnit": "pcs",
+      "aliases": [
+        "перец болгарский",
+        "сладкий перец"
+      ],
+      "barboraResolved": true
+    },
+    "carrot": {
+      "id": "carrot",
+      "nameEn": "carrot",
+      "nameRu": "Морковь",
+      "nameLt": "Morka",
+      "category": "produce",
+      "defaultUnit": "g",
+      "aliases": [
+        "морковка"
+      ],
+      "barboraResolved": true
+    },
+    "zucchini": {
+      "id": "zucchini",
+      "nameEn": "zucchini",
+      "nameRu": "Кабачок",
+      "nameLt": "Cukinija",
+      "category": "produce",
+      "defaultUnit": "g",
+      "aliases": [
+        "цукини",
+        "кабачки"
+      ],
+      "barboraResolved": true
+    },
+    "pumpkin": {
+      "id": "pumpkin",
+      "nameEn": "pumpkin",
+      "nameRu": "Тыква",
+      "nameLt": "Moliūgas",
+      "category": "produce",
+      "defaultUnit": "g",
+      "aliases": [
+        "тыква мускатная"
+      ],
+      "barboraResolved": true
+    },
+    "spinach": {
+      "id": "spinach",
+      "nameEn": "spinach",
+      "nameRu": "Шпинат",
+      "nameLt": "Špinatai",
+      "category": "produce",
+      "defaultUnit": "g",
+      "aliases": [
+        "шпинат свежий",
+        "шпинат замороженный"
+      ],
+      "barboraResolved": true
+    },
+    "broccoli": {
+      "id": "broccoli",
+      "nameEn": "broccoli",
+      "nameRu": "Брокколи",
+      "nameLt": "Brokoliai",
+      "category": "produce",
+      "defaultUnit": "g",
+      "aliases": [
+        "брокколи замороженная"
+      ],
+      "barboraResolved": true
+    },
+    "onion": {
+      "id": "onion",
+      "nameEn": "onion",
+      "nameRu": "Репчатый лук",
+      "nameLt": "Svogūnas",
+      "category": "produce",
+      "defaultUnit": "pcs",
+      "aliases": [
+        "лук репчатый",
+        "лук"
+      ],
+      "barboraResolved": true
+    },
+    "garlic": {
+      "id": "garlic",
+      "nameEn": "garlic",
+      "nameRu": "Чеснок",
+      "nameLt": "Česnakas",
+      "category": "produce",
+      "defaultUnit": "pcs",
+      "aliases": [
+        "зубчик чеснока"
+      ],
+      "barboraResolved": true
+    },
+    "lemon": {
+      "id": "lemon",
+      "nameEn": "lemon",
+      "nameRu": "Лимон",
+      "nameLt": "Citrina",
+      "category": "produce",
+      "defaultUnit": "pcs",
+      "aliases": [
+        "лимонный сок"
+      ],
+      "barboraResolved": true
+    },
+    "olive_oil": {
+      "id": "olive_oil",
+      "nameEn": "olive oil",
+      "nameRu": "Оливковое масло",
+      "nameLt": "Alyvuogių aliejus",
+      "category": "pantry",
+      "defaultUnit": "tbsp",
+      "aliases": [
+        "масло оливковое"
+      ],
+      "barboraResolved": true
+    },
+    "honey": {
+      "id": "honey",
+      "nameEn": "honey",
+      "nameRu": "Мёд",
+      "nameLt": "Medus",
+      "category": "pantry",
+      "defaultUnit": "tbsp",
+      "aliases": [
+        "мед"
+      ],
+      "barboraResolved": true
+    },
+    "vegetable_broth": {
+      "id": "vegetable_broth",
+      "nameEn": "vegetable broth",
+      "nameRu": "Овощной бульон",
+      "nameLt": "Daržovių sultinys",
+      "category": "pantry",
+      "defaultUnit": "ml",
+      "aliases": [
+        "бульон овощной",
+        "vegetable stock"
+      ],
+      "barboraResolved": true
+    },
+    "cumin": {
+      "id": "cumin",
+      "nameEn": "cumin",
+      "nameRu": "Тмин молотый",
+      "nameLt": "Kmynai",
+      "category": "pantry",
+      "defaultUnit": "tsp",
+      "aliases": [
+        "зира",
+        "кумин"
+      ],
+      "barboraResolved": true
+    },
+    "turmeric": {
+      "id": "turmeric",
+      "nameEn": "turmeric",
+      "nameRu": "Куркума",
+      "nameLt": "Ciberžolė",
+      "category": "pantry",
+      "defaultUnit": "tsp",
+      "aliases": [
+        "куркума молотая"
+      ],
+      "barboraResolved": true
+    },
+    "walnuts": {
+      "id": "walnuts",
+      "nameEn": "walnuts",
+      "nameRu": "Грецкие орехи",
+      "nameLt": "Graikiniai riešutai",
+      "category": "pantry",
+      "defaultUnit": "g",
+      "aliases": [
+        "орехи грецкие"
+      ],
+      "barboraResolved": true
+    },
+    "frozen_blueberries": {
+      "id": "frozen_blueberries",
+      "nameEn": "frozen blueberries",
+      "nameRu": "Замороженная черника",
+      "nameLt": "Šaldytos mėlynės",
+      "category": "frozen",
+      "defaultUnit": "g",
+      "aliases": [
+        "черника замороженная",
+        "blueberries"
+      ],
+      "barboraResolved": true
+    },
+    "frozen_strawberries": {
+      "id": "frozen_strawberries",
+      "nameEn": "frozen strawberries",
+      "nameRu": "Замороженная клубника",
+      "nameLt": "Šaldytos braškės",
+      "category": "frozen",
+      "defaultUnit": "g",
+      "aliases": [
+        "клубника замороженная",
+        "strawberries"
+      ],
+      "barboraResolved": true
+    },
+    "frozen_spinach": {
+      "id": "frozen_spinach",
+      "nameEn": "frozen spinach",
+      "nameRu": "Шпинат замороженный",
+      "nameLt": "Šaldyti špinatai",
+      "category": "frozen",
+      "defaultUnit": "g",
+      "aliases": [
+        "замороженный шпинат"
+      ],
+      "barboraResolved": true
+    },
+    "wheat_flour": {
+      "id": "wheat_flour",
+      "nameEn": "wheat flour",
+      "nameRu": "Пшеничная мука",
+      "nameLt": "Kvietiniai miltai",
+      "category": "pantry",
+      "defaultUnit": "g",
+      "aliases": [
+        "мука пшеничная",
+        "мука",
+        "flour"
+      ],
+      "barboraResolved": false
+    }
+  }
+}
