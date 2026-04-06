@@ -103,7 +103,7 @@ function renderMenu() {
     .join('');
 
   const rows = menu.days.map(day => {
-    const dayLabel = `<div class="menu-day-label">${shortDay(day.dayNameRu)}<br><span style="font-weight:400;color:#999;font-size:11px">${shortDate(day.date)}</span></div>`;
+    const dayLabel = `<div class="menu-day-label">${shortDay(day.dayNameRu)}<span class="menu-day-date">${shortDate(day.date)}</span></div>`;
     const cells = MEAL_TYPES.map(type => {
       const meal = day.meals[type];
       if (!meal) return `<div class="menu-cell menu-cell--empty">—</div>`;
