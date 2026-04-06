@@ -183,7 +183,7 @@
       "nameRu": "Болгарский перец",
       "nameLt": "Paprika",
       "category": "produce",
-      "amount": 13.0,
+      "amount": 11.0,
       "unit": "pcs",
       "neededByDate": "2026-04-13",
       "checkboxKey": "2026-W16:produce|Болгарский перец|pcs"
@@ -193,7 +193,7 @@
       "nameRu": "Кабачок",
       "nameLt": "Cukinija",
       "category": "produce",
-      "amount": 1350,
+      "amount": 800,
       "unit": "g",
       "neededByDate": "2026-04-13",
       "checkboxKey": "2026-W16:produce|Кабачок|g"
@@ -203,7 +203,7 @@
       "nameRu": "Лимон",
       "nameLt": "Citrina",
       "category": "produce",
-      "amount": 7.0,
+      "amount": 6.0,
       "unit": "pcs",
       "neededByDate": "2026-04-13",
       "checkboxKey": "2026-W16:produce|Лимон|pcs"
@@ -213,7 +213,7 @@
       "nameRu": "Морковь",
       "nameLt": "Morka",
       "category": "produce",
-      "amount": 1950,
+      "amount": 1600,
       "unit": "g",
       "neededByDate": "2026-04-13",
       "checkboxKey": "2026-W16:produce|Морковь|g"
@@ -223,10 +223,10 @@
       "nameRu": "Чеснок",
       "nameLt": "Česnakas",
       "category": "produce",
-      "amount": 27.0,
-      "unit": "pcs",
+      "amount": 100,
+      "unit": "g",
       "neededByDate": "2026-04-13",
-      "checkboxKey": "2026-W16:produce|Чеснок|pcs"
+      "checkboxKey": "2026-W16:produce|Чеснок|g"
     },
     {
       "ingredientId": "spinach",
@@ -263,7 +263,7 @@
       "nameRu": "Куриное филе",
       "nameLt": "Vištienos filė",
       "category": "meat",
-      "amount": 1650,
+      "amount": 1050,
       "unit": "g",
       "neededByDate": "2026-04-13",
       "checkboxKey": "2026-W16:meat|Куриное филе|g"
@@ -273,7 +273,7 @@
       "nameRu": "Филе индейки",
       "nameLt": "Kalakutienos filė",
       "category": "meat",
-      "amount": 1200,
+      "amount": 600,
       "unit": "g",
       "neededByDate": "2026-04-13",
       "checkboxKey": "2026-W16:meat|Филе индейки|g"
@@ -283,7 +283,7 @@
       "nameRu": "Гречневая крупа",
       "nameLt": "Grikiai",
       "category": "grains",
-      "amount": 1020,
+      "amount": 780,
       "unit": "g",
       "neededByDate": "2026-04-13",
       "checkboxKey": "2026-W16:grains|Гречневая крупа|g"
@@ -303,27 +303,27 @@
       "nameRu": "Мёд",
       "nameLt": "Medus",
       "category": "pantry",
-      "amount": 6.0,
-      "unit": "tbsp",
+      "amount": 90,
+      "unit": "ml",
       "neededByDate": "2026-04-13",
-      "checkboxKey": "2026-W16:pantry|Мёд|tbsp"
+      "checkboxKey": "2026-W16:pantry|Мёд|ml"
     },
     {
       "ingredientId": "olive_oil",
       "nameRu": "Оливковое масло",
       "nameLt": "Alyvuogių aliejus",
       "category": "pantry",
-      "amount": 26.0,
-      "unit": "tbsp",
+      "amount": 285,
+      "unit": "ml",
       "neededByDate": "2026-04-13",
-      "checkboxKey": "2026-W16:pantry|Оливковое масло|tbsp"
+      "checkboxKey": "2026-W16:pantry|Оливковое масло|ml"
     },
     {
       "ingredientId": "trout_fillet",
       "nameRu": "Филе форели",
       "nameLt": "Upėtakio filė",
       "category": "fish",
-      "amount": 1200,
+      "amount": 600,
       "unit": "g",
       "neededByDate": "2026-04-14",
       "checkboxKey": "2026-W16:fish|Филе форели|g"
@@ -353,7 +353,7 @@
       "nameRu": "Шпинат замороженный",
       "nameLt": "Šaldyti špinatai",
       "category": "frozen",
-      "amount": 650,
+      "amount": 450,
       "unit": "g",
       "neededByDate": "2026-04-14",
       "checkboxKey": "2026-W16:frozen|Шпинат замороженный|g"
@@ -373,7 +373,7 @@
       "nameRu": "Репчатый лук",
       "nameLt": "Svogūnas",
       "category": "produce",
-      "amount": 8.0,
+      "amount": 6.0,
       "unit": "pcs",
       "neededByDate": "2026-04-15",
       "checkboxKey": "2026-W16:produce|Репчатый лук|pcs"
@@ -423,7 +423,7 @@
       "nameRu": "Красная чечевица",
       "nameLt": "Raudonosios lęšiai",
       "category": "legumes",
-      "amount": 480,
+      "amount": 240,
       "unit": "g",
       "neededByDate": "2026-04-15",
       "checkboxKey": "2026-W16:legumes|Красная чечевица|g"
@@ -433,7 +433,7 @@
       "nameRu": "Тмин молотый",
       "nameLt": "Kmynai",
       "category": "pantry",
-      "amount": 3.0,
+      "amount": 2.0,
       "unit": "tsp",
       "neededByDate": "2026-04-15",
       "checkboxKey": "2026-W16:pantry|Тмин молотый|tsp"
@@ -443,7 +443,7 @@
       "nameRu": "Томаты консервированные",
       "nameLt": "Konservuoti pomidorai",
       "category": "pantry",
-      "amount": 1600,
+      "amount": 1400,
       "unit": "g",
       "neededByDate": "2026-04-15",
       "checkboxKey": "2026-W16:pantry|Томаты консервированные|g"
@@ -453,7 +453,7 @@
       "nameRu": "Помидоры",
       "nameLt": "Pomidorai",
       "category": "produce",
-      "amount": 1200,
+      "amount": 900,
       "unit": "g",
       "neededByDate": "2026-04-16",
       "checkboxKey": "2026-W16:produce|Помидоры|g"

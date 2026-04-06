@@ -193,7 +193,7 @@
       "nameRu": "Болгарский перец",
       "nameLt": "Paprika",
       "category": "produce",
-      "amount": 6.0,
+      "amount": 4.0,
       "unit": "pcs",
       "neededByDate": "2026-04-20",
       "checkboxKey": "2026-W17:produce|Болгарский перец|pcs"
@@ -203,7 +203,7 @@
       "nameRu": "Морковь",
       "nameLt": "Morka",
       "category": "produce",
-      "amount": 1150,
+      "amount": 750,
       "unit": "g",
       "neededByDate": "2026-04-20",
       "checkboxKey": "2026-W17:produce|Морковь|g"
@@ -213,7 +213,7 @@
       "nameRu": "Репчатый лук",
       "nameLt": "Svogūnas",
       "category": "produce",
-      "amount": 7.0,
+      "amount": 5.0,
       "unit": "pcs",
       "neededByDate": "2026-04-20",
       "checkboxKey": "2026-W17:produce|Репчатый лук|pcs"
@@ -223,10 +223,10 @@
       "nameRu": "Чеснок",
       "nameLt": "Česnakas",
       "category": "produce",
-      "amount": 22.0,
-      "unit": "pcs",
+      "amount": 85,
+      "unit": "g",
       "neededByDate": "2026-04-20",
-      "checkboxKey": "2026-W17:produce|Чеснок|pcs"
+      "checkboxKey": "2026-W17:produce|Чеснок|g"
     },
     {
       "ingredientId": "milk",
@@ -253,7 +253,7 @@
       "nameRu": "Куриное филе",
       "nameLt": "Vištienos filė",
       "category": "meat",
-      "amount": 2400,
+      "amount": 1200,
       "unit": "g",
       "neededByDate": "2026-04-20",
       "checkboxKey": "2026-W17:meat|Куриное филе|g"
@@ -293,7 +293,7 @@
       "nameRu": "Рис",
       "nameLt": "Ryžiai",
       "category": "grains",
-      "amount": 1440,
+      "amount": 1140,
       "unit": "g",
       "neededByDate": "2026-04-20",
       "checkboxKey": "2026-W17:grains|Рис|g"
@@ -313,20 +313,20 @@
       "nameRu": "Мёд",
       "nameLt": "Medus",
       "category": "pantry",
-      "amount": 16.0,
-      "unit": "tbsp",
+      "amount": 240,
+      "unit": "ml",
       "neededByDate": "2026-04-20",
-      "checkboxKey": "2026-W17:pantry|Мёд|tbsp"
+      "checkboxKey": "2026-W17:pantry|Мёд|ml"
     },
     {
       "ingredientId": "olive_oil",
       "nameRu": "Оливковое масло",
       "nameLt": "Alyvuogių aliejus",
       "category": "pantry",
-      "amount": 27.0,
-      "unit": "tbsp",
+      "amount": 285,
+      "unit": "ml",
       "neededByDate": "2026-04-20",
-      "checkboxKey": "2026-W17:pantry|Оливковое масло|tbsp"
+      "checkboxKey": "2026-W17:pantry|Оливковое масло|ml"
     },
     {
       "ingredientId": "zucchini",
@@ -343,7 +343,7 @@
       "nameRu": "Лимон",
       "nameLt": "Citrina",
       "category": "produce",
-      "amount": 4.0,
+      "amount": 3.0,
       "unit": "pcs",
       "neededByDate": "2026-04-21",
       "checkboxKey": "2026-W17:produce|Лимон|pcs"
@@ -353,10 +353,10 @@
       "nameRu": "Сливочное масло",
       "nameLt": "Sviestas",
       "category": "dairy",
-      "amount": 5.0,
-      "unit": "tbsp",
+      "amount": 75,
+      "unit": "g",
       "neededByDate": "2026-04-21",
-      "checkboxKey": "2026-W17:dairy|Сливочное масло|tbsp"
+      "checkboxKey": "2026-W17:dairy|Сливочное масло|g"
     },
     {
       "ingredientId": "hard_cheese",
@@ -413,7 +413,7 @@
       "nameRu": "Зелёная чечевица",
       "nameLt": "Žaliosios lęšiai",
       "category": "legumes",
-      "amount": 980,
+      "amount": 490,
       "unit": "g",
       "neededByDate": "2026-04-22",
       "checkboxKey": "2026-W17:legumes|Зелёная чечевица|g"
@@ -433,7 +433,7 @@
       "nameRu": "Овощной бульон",
       "nameLt": "Daržovių sultinys",
       "category": "pantry",
-      "amount": 3400,
+      "amount": 2900,
       "unit": "ml",
       "neededByDate": "2026-04-22",
       "checkboxKey": "2026-W17:pantry|Овощной бульон|ml"
@@ -443,17 +443,17 @@
       "nameRu": "Пшеничная мука",
       "nameLt": "Kvietiniai miltai",
       "category": "pantry",
-      "amount": 5.0,
-      "unit": "tbsp",
+      "amount": 250,
+      "unit": "g",
       "neededByDate": "2026-04-22",
-      "checkboxKey": "2026-W17:pantry|Пшеничная мука|tbsp"
+      "checkboxKey": "2026-W17:pantry|Пшеничная мука|g"
     },
     {
       "ingredientId": "cumin",
       "nameRu": "Тмин молотый",
       "nameLt": "Kmynai",
       "category": "pantry",
-      "amount": 3.0,
+      "amount": 2.0,
       "unit": "tsp",
       "neededByDate": "2026-04-22",
       "checkboxKey": "2026-W17:pantry|Тмин молотый|tsp"
@@ -463,7 +463,7 @@
       "nameRu": "Томаты консервированные",
       "nameLt": "Konservuoti pomidorai",
       "category": "pantry",
-      "amount": 1400,
+      "amount": 1000,
       "unit": "g",
       "neededByDate": "2026-04-22",
       "checkboxKey": "2026-W17:pantry|Томаты консервированные|g"
@@ -473,7 +473,7 @@
       "nameRu": "Брокколи",
       "nameLt": "Brokoliai",
       "category": "produce",
-      "amount": 1700,
+      "amount": 1300,
       "unit": "g",
       "neededByDate": "2026-04-23",
       "checkboxKey": "2026-W17:produce|Брокколи|g"
@@ -483,7 +483,7 @@
       "nameRu": "Гречневая крупа",
       "nameLt": "Grikiai",
       "category": "grains",
-      "amount": 720,
+      "amount": 480,
       "unit": "g",
       "neededByDate": "2026-04-23",
       "checkboxKey": "2026-W17:grains|Гречневая крупа|g"
@@ -493,7 +493,7 @@
       "nameRu": "Филе лосося",
       "nameLt": "Lašišos filė",
       "category": "fish",
-      "amount": 1200,
+      "amount": 600,
       "unit": "g",
       "neededByDate": "2026-04-24",
       "checkboxKey": "2026-W17:fish|Филе лосося|g"
@@ -537,16 +537,6 @@
       "unit": "g",
       "neededByDate": "2026-04-26",
       "checkboxKey": "2026-W17:frozen|Замороженная клубника|g"
-    },
-    {
-      "ingredientId": "wheat_flour",
-      "nameRu": "Пшеничная мука",
-      "nameLt": "Kvietiniai miltai",
-      "category": "pantry",
-      "amount": 200,
-      "unit": "g",
-      "neededByDate": "2026-04-26",
-      "checkboxKey": "2026-W17:pantry|Пшеничная мука|g"
     }
   ],
   "scoreReport": {

@@ -419,7 +419,7 @@
       "nameRu": "Чеснок",
       "nameLt": "Česnakas",
       "category": "produce",
-      "defaultUnit": "pcs",
+      "defaultUnit": "g",
       "aliases": [
         "зубчик чеснока"
       ],

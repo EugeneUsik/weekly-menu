@@ -74,6 +74,9 @@ def aggregate(week_id: str):
             base_servings = recipe.get("servings", FAMILY_SERVINGS)
             scale = FAMILY_SERVINGS / base_servings if base_servings else 1
 
+            if meal.get("isLeftover"):
+                continue  # Leftover meals use ingredients already counted on the cook day
+
             for ing in recipe.get("ingredients", []):
                 iid = ing.get("ingredientId")
                 amount = ing.get("amount", 0) * scale
@@ -100,15 +103,30 @@ def aggregate(week_id: str):
         name_lt = entry.get("nameLt", "")
         category = entry.get("category", "other")
 
-        # Try to consolidate tbsp/tsp into ml if ml bucket also exists
+        # Convert tbsp to ml always (tbsp is not a useful shopping unit).
+        # Keep tsp as-is — it is useful for small spice quantities.
         consolidated = dict(unit_map)
-        for small_unit, ml_factor in UNIT_TO_ML.items():
-            if small_unit in consolidated and "ml" in consolidated:
-                ml_amount = consolidated.pop(small_unit)["amount"] * ml_factor
+        if "tbsp" in consolidated:
+            tbsp_data = consolidated.pop("tbsp")
+            ml_amount = tbsp_data["amount"] * UNIT_TO_ML["tbsp"]
+            if "ml" in consolidated:
                 consolidated["ml"]["amount"] += ml_amount
-                if consolidated["ml"]["neededByDate"] is None or \
-                   unit_map[small_unit]["neededByDate"] < consolidated["ml"]["neededByDate"]:
-                    consolidated["ml"]["neededByDate"] = unit_map[small_unit]["neededByDate"]
+                if tbsp_data["neededByDate"] and (
+                    consolidated["ml"]["neededByDate"] is None or
+                    tbsp_data["neededByDate"] < consolidated["ml"]["neededByDate"]
+                ):
+                    consolidated["ml"]["neededByDate"] = tbsp_data["neededByDate"]
+            else:
+                consolidated["ml"] = {"amount": ml_amount, "neededByDate": tbsp_data["neededByDate"]}
+        # Merge tsp into ml only when ml already present (avoids 5ml spice entries)
+        if "tsp" in consolidated and "ml" in consolidated:
+            tsp_data = consolidated.pop("tsp")
+            consolidated["ml"]["amount"] += tsp_data["amount"] * UNIT_TO_ML["tsp"]
+            if tsp_data["neededByDate"] and (
+                consolidated["ml"]["neededByDate"] is None or
+                tsp_data["neededByDate"] < consolidated["ml"]["neededByDate"]
+            ):
+                consolidated["ml"]["neededByDate"] = tsp_data["neededByDate"]
 
         for unit, data in consolidated.items():
             raw_amount = data["amount"]
