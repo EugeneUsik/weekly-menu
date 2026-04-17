@@ -21,9 +21,10 @@ from pathlib import Path
 ROOT = Path(__file__).parent.parent
 
 # ── Allergy forbidden terms ───────────────────────────────────────────────────
-# Child allergies: apples, prunes/plums, peaches, apricots.
-# Matching uses word boundaries (\b) to avoid false positives like "pineapple".
-# Terms without natural word boundaries in compound words use explicit patterns.
+# Child allergies: apples, pears, cherries, apricots, peaches, prunes/plums.
+# Word-boundary patterns prevent false positives (e.g. "pineapple" ≠ "apple",
+# "cherry_tomatoes" ingredientId contains "cherry" but cherry tomatoes are safe
+# as a produce item — guard by checking full IDs containing "_tomato" suffix).
 import re
 
 FORBIDDEN_PATTERNS = [
@@ -31,7 +32,17 @@ FORBIDDEN_PATTERNS = [
     re.compile(r'\bapples\b', re.IGNORECASE),
     re.compile(r'\bяблоко\b', re.IGNORECASE),
     re.compile(r'\bяблоки\b', re.IGNORECASE),
-    re.compile(r'\bяблочн', re.IGNORECASE),       # яблочный, яблочного, etc.
+    re.compile(r'\bяблочн', re.IGNORECASE),
+    re.compile(r'\bpear\b', re.IGNORECASE),
+    re.compile(r'\bpears\b', re.IGNORECASE),
+    re.compile(r'\bгруша\b', re.IGNORECASE),
+    re.compile(r'\bгруши\b', re.IGNORECASE),
+    re.compile(r'\bгрушев', re.IGNORECASE),
+    re.compile(r'\bcherry\b', re.IGNORECASE),
+    re.compile(r'\bcherries\b', re.IGNORECASE),
+    re.compile(r'\bвишня\b', re.IGNORECASE),
+    re.compile(r'\bвишни\b', re.IGNORECASE),
+    re.compile(r'\bчерешня\b', re.IGNORECASE),
     re.compile(r'\bprune\b', re.IGNORECASE),
     re.compile(r'\bprunes\b', re.IGNORECASE),
     re.compile(r'\bplum\b', re.IGNORECASE),
@@ -47,14 +58,29 @@ FORBIDDEN_PATTERNS = [
     re.compile(r'\bперсик', re.IGNORECASE),
 ]
 
-def _is_forbidden(term: str) -> str | None:
-    """Return the matched forbidden pattern string, or None if safe."""
+# Ingredient IDs that match a forbidden pattern but are actually safe (e.g. cherry tomatoes).
+_FORBIDDEN_SAFE_IDS = {"cherry_tomatoes", "помидоры_черри"}
+
+def _is_forbidden(term: str, ingredient_id: str = "") -> str | None:
+    """Return the matched forbidden pattern string, or None if safe.
+    ingredient_id is checked against the safe-ID allowlist first."""
+    if ingredient_id in _FORBIDDEN_SAFE_IDS:
+        return None
     for pat in FORBIDDEN_PATTERNS:
         if pat.search(term):
             return pat.pattern
     return None
 
 VALID_UNITS = {"g", "ml", "pcs", "tbsp", "tsp", "cup"}
+
+# ── Per-recipe nutrition bounds (warnings only — values are estimates) ────────
+# Ranges represent reasonable per-serving targets for one family member.
+NUTRITION_BOUNDS: dict[str, dict] = {
+    "breakfast": {"kcal": (220, 560), "protein": (8, None),  "fiber": (2, None)},
+    "lunch":     {"kcal": (260, 640), "protein": (15, None), "fiber": (2, None)},
+    "dinner":    {"kcal": (320, 720), "protein": (18, None), "fiber": (2, None)},
+    "snack":     {"kcal": (70,  400)},
+}
 VALID_MEAL_TYPES = {"breakfast", "lunch", "dinner", "snack"}
 VALID_CATEGORIES = {"produce", "dairy", "meat", "fish", "grains", "legumes", "frozen", "pantry", "other"}
 VALID_DAYS_RU = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"]
@@ -151,6 +177,25 @@ def validate_recipes(recipes):
                 error(v, f"Recipe '{rid}' missing nutrition field '{nf}'", rid)
         if not isinstance(r.get("stepsRu"), list) or len(r.get("stepsRu", [])) == 0:
             error(v, f"Recipe '{rid}' stepsRu must be a non-empty array", rid)
+        # Nutrition bounds — warn only, values are estimates
+        mt = r.get("mealType", "")
+        bounds = NUTRITION_BOUNDS.get(mt, {})
+        nutr = r.get("nutrition", {})
+        if "kcal" in bounds:
+            lo, hi = bounds["kcal"]
+            kcal = nutr.get("kcalPerServing", 0)
+            if kcal < lo or kcal > hi:
+                warn(v, f"Recipe '{rid}' kcalPerServing={kcal} outside expected {lo}–{hi} for {mt}", rid)
+        if "protein" in bounds:
+            lo, _ = bounds["protein"]
+            protein = nutr.get("proteinG", 0)
+            if lo and protein < lo:
+                warn(v, f"Recipe '{rid}' proteinG={protein} below floor {lo}g for {mt}", rid)
+        if "fiber" in bounds:
+            lo, _ = bounds["fiber"]
+            fiber = nutr.get("fiberG", 0)
+            if lo and fiber < lo:
+                warn(v, f"Recipe '{rid}' fiberG={fiber} below floor {lo}g for {mt}", rid)
     return seen_ids
 
 
@@ -170,7 +215,7 @@ def validate_allergy_safety(recipes, ingredient_map):
                     entry.get("nameLt", ""),
                 ] + entry.get("aliases", []))
             for term in terms_to_check:
-                matched = _is_forbidden(term)
+                matched = _is_forbidden(term, ingredient_id=iid)
                 if matched:
                     error(v,
                           f"Recipe '{rid}' contains forbidden ingredient '{iid}' (matched '{matched}' in '{term}')",

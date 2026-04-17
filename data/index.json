@@ -1,6 +1,13 @@
 {
   "weeks": [
     {
+      "weekId": "2026-W19",
+      "labelRu": "4–10 мая",
+      "startDate": "2026-05-04",
+      "endDate": "2026-05-10",
+      "published": true
+    },
+    {
       "weekId": "2026-W18",
       "labelRu": "27 апреля – 3 мая",
       "startDate": "2026-04-27",
@@ -22,5 +29,5 @@
       "published": true
     }
   ],
-  "defaultWeekId": "2026-W18"
+  "defaultWeekId": "2026-W19"
 }

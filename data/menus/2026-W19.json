@@ -1,0 +1,191 @@
+{
+  "weekId": "2026-W19",
+  "generatedAt": "2026-04-18T00:05:38.295225+03:00",
+  "days": [
+    {
+      "date": "2026-05-04",
+      "dayNameRu": "Понедельник",
+      "meals": {
+        "breakfast": {
+          "recipeId": "scrambled-eggs-with-vegetables",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "lunch": {
+          "recipeId": "egg-vegetable-salad",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "dinner": {
+          "recipeId": "turkey-vegetable-soup",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "snack": {
+          "recipeId": "ricotta-berries-snack",
+          "isLeftover": false,
+          "sourceDay": null
+        }
+      }
+    },
+    {
+      "date": "2026-05-05",
+      "dayNameRu": "Вторник",
+      "meals": {
+        "breakfast": {
+          "recipeId": "avocado-toast-egg",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "lunch": {
+          "recipeId": "turkey-vegetable-soup",
+          "isLeftover": true,
+          "sourceDay": "2026-05-04"
+        },
+        "dinner": {
+          "recipeId": "trout-with-buckwheat-spinach",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "snack": null
+      }
+    },
+    {
+      "date": "2026-05-06",
+      "dayNameRu": "Среда",
+      "meals": {
+        "breakfast": {
+          "recipeId": "yogurt-granola-strawberry",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "lunch": {
+          "recipeId": "trout-with-buckwheat-spinach",
+          "isLeftover": true,
+          "sourceDay": "2026-05-05"
+        },
+        "dinner": {
+          "recipeId": "red-lentil-soup",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "snack": {
+          "recipeId": "banana-cottage-cheese-snack",
+          "isLeftover": false,
+          "sourceDay": null
+        }
+      }
+    },
+    {
+      "date": "2026-05-07",
+      "dayNameRu": "Четверг",
+      "meals": {
+        "breakfast": {
+          "recipeId": "oat-banana-pancakes",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "lunch": {
+          "recipeId": "red-lentil-soup",
+          "isLeftover": true,
+          "sourceDay": "2026-05-06"
+        },
+        "dinner": {
+          "recipeId": "chicken-pumpkin-stew",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "snack": null
+      }
+    },
+    {
+      "date": "2026-05-08",
+      "dayNameRu": "Пятница",
+      "meals": {
+        "breakfast": {
+          "recipeId": "omelette-with-cheese",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "lunch": {
+          "recipeId": "chicken-pumpkin-stew",
+          "isLeftover": true,
+          "sourceDay": "2026-05-07"
+        },
+        "dinner": {
+          "recipeId": "trout-rice-bowl",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "snack": {
+          "recipeId": "boiled-egg-veggie-snack",
+          "isLeftover": false,
+          "sourceDay": null
+        }
+      }
+    },
+    {
+      "date": "2026-05-09",
+      "dayNameRu": "Суббота",
+      "meals": {
+        "breakfast": {
+          "recipeId": "buckwheat-porridge-milk",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "lunch": {
+          "recipeId": "vegetable-minestrone",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "dinner": {
+          "recipeId": "white-bean-spinach-stew",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "snack": {
+          "recipeId": "cheese-toast-snack",
+          "isLeftover": false,
+          "sourceDay": null
+        }
+      }
+    },
+    {
+      "date": "2026-05-10",
+      "dayNameRu": "Воскресенье",
+      "meals": {
+        "breakfast": {
+          "recipeId": "millet-porridge-honey",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "lunch": {
+          "recipeId": "buckwheat-chicken-bowl",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "dinner": {
+          "recipeId": "chickpea-vegetable-curry",
+          "isLeftover": false,
+          "sourceDay": null
+        },
+        "snack": {
+          "recipeId": "vegetable-sticks-yogurt-dip",
+          "isLeftover": false,
+          "sourceDay": null
+        }
+      }
+    }
+  ],
+  "shoppingList": [],
+  "scoreReport": {
+    "fishMeals": 3,
+    "legumeMeals": 4,
+    "redMeatMeals": 0,
+    "snackDays": 5,
+    "warnings": [
+      "dinner_repeated_week3_4: -80",
+      "breakfast_repeated_week3_4: -40"
+    ]
+  }
+}

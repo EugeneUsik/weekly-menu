@@ -22,7 +22,7 @@
           "sourceDay": null
         },
         "snack": {
-          "recipeId": "pear-walnut-yogurt-snack",
+          "recipeId": "banana-walnut-yogurt-snack",
           "isLeftover": false,
           "sourceDay": null
         }
@@ -129,7 +129,7 @@
       "dayNameRu": "Суббота",
       "meals": {
         "breakfast": {
-          "recipeId": "oat-porridge-pear-cinnamon",
+          "recipeId": "oat-porridge-blueberry-cinnamon",
           "isLeftover": false,
           "sourceDay": null
         },
@@ -144,7 +144,7 @@
           "sourceDay": null
         },
         "snack": {
-          "recipeId": "pear-walnut-yogurt-snack",
+          "recipeId": "banana-walnut-yogurt-snack",
           "isLeftover": false,
           "sourceDay": null
         }

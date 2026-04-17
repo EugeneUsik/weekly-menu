@@ -114,7 +114,7 @@ Append-only recipe library. Array of recipe objects. IDs are stable and never re
 - `version`: increment if a recipe is structurally corrected (ingredient amounts, steps); never change `id`
 
 ### Allergy enforcement
-The following ingredients are **forbidden** for the child (allergies): apples, prunes/plums, peaches, apricots.
+The following ingredients are **forbidden** for the child (allergies): apples, pears, cherries, apricots, peaches, prunes/plums.
 
 Matching uses **word boundaries** to avoid false positives — `pineapple` is safe, `apple` is not.
 
@@ -122,12 +122,40 @@ Forbidden patterns (checked against `ingredientId`, `nameRu`, `nameEn`, and `ali
 
 ```
 apple, apples, яблоко, яблоки, яблочный (and all яблочн- forms)
+pear, pears, груша, груши, грушев- (and all грушев- forms)
+cherry, cherries, вишня, вишни, черешня
 prune, prunes, plum, plums, чернослив, слива, сливы
 apricot, apricots, абрикос (and all абрикос- forms)
 peach, peaches, персик (and all персик- forms)
 ```
 
-**Safe**: pineapple/ананас, nectarine/нектарин, cherry tomatoes/помидоры черри (use "помидоры" in Russian), grapes/виноград.
+**Safe**: pineapple/ананас, nectarine/нектарин, cherry tomatoes/помидоры черри (use ingredient ID `cherry_tomatoes` to bypass pattern), grapes/виноград, banana/банан, blueberries/черника, strawberries/клубника.
+
+### Per-recipe nutrition targets
+
+Recipes must fall within these per-serving ranges (one serving = one family member). Values are estimates; validator emits **warnings**, not errors, for out-of-range recipes.
+
+| Meal type | kcal | protein | fiber |
+|-----------|------|---------|-------|
+| Breakfast | 220–560 | ≥ 8g | ≥ 2g |
+| Lunch | 260–640 | ≥ 15g | ≥ 2g |
+| Dinner | 320–720 | ≥ 18g | ≥ 2g |
+| Snack | 70–400 | — | — |
+
+**Family member context:**
+- Husband 40M — ~2 400 kcal/day, protein ≥ 100g/day
+- Wife 40F (LDL concern) — ~1 900 kcal/day, emphasise omega-3, legumes, high-fibre meals
+- Child 12M (growing) — ~2 200 kcal/day, dairy ≥ 3 days/week for calcium
+
+### Weekly family health signals (soft penalties in scoring)
+
+| Signal | Target | Penalty if missed |
+|--------|--------|-------------------|
+| Average dinner protein | ≥ 22g/serving | −10 |
+| Breakfasts with protein ≥ 12g | ≥ 3/week | −8 |
+| Breakfasts with fibre ≥ 5g | ≥ 2/week (wife LDL) | −8 |
+| LDL-support meals (omega3 + legume + highFibre) | ≥ 6/week | −10 |
+| Days with ≥ 1 dairy meal | ≥ 3/week (child calcium) | −8 |
 
 ---
 

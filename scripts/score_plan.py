@@ -37,8 +37,9 @@ PROTEIN_CATEGORY_MAP = {
 RED_MEAT_INGREDIENT_KEYWORDS = {"beef", "pork", "lamb", "veal", "говядина", "свинина", "баранина", "телятина"}
 CHICKEN_INGREDIENT_KEYWORDS  = {"chicken", "курица", "куриц", "chicken_breast", "chicken_thigh", "chicken_drum"}
 
-# Child allergies: apples, prunes/plums, peaches, apricots.
-# Word-boundary patterns prevent false positives (e.g. "pineapple" ≠ "apple").
+# Child allergies: apples, pears, cherries, apricots, peaches, prunes/plums.
+# Word-boundary patterns prevent false positives (e.g. "pineapple" ≠ "apple",
+# "cherry tomatoes" safe because ingredientId would be "cherry_tomatoes" not "cherry").
 import re as _re
 
 _FORBIDDEN_PATTERNS = [
@@ -47,6 +48,16 @@ _FORBIDDEN_PATTERNS = [
     _re.compile(r'\bяблоко\b', _re.IGNORECASE),
     _re.compile(r'\bяблоки\b', _re.IGNORECASE),
     _re.compile(r'\bяблочн', _re.IGNORECASE),
+    _re.compile(r'\bpear\b', _re.IGNORECASE),
+    _re.compile(r'\bpears\b', _re.IGNORECASE),
+    _re.compile(r'\bгруша\b', _re.IGNORECASE),
+    _re.compile(r'\bгруши\b', _re.IGNORECASE),
+    _re.compile(r'\bгрушев', _re.IGNORECASE),
+    _re.compile(r'\bcherry\b', _re.IGNORECASE),
+    _re.compile(r'\bcherries\b', _re.IGNORECASE),
+    _re.compile(r'\bвишня\b', _re.IGNORECASE),
+    _re.compile(r'\bвишни\b', _re.IGNORECASE),
+    _re.compile(r'\bчерешня\b', _re.IGNORECASE),
     _re.compile(r'\bprune\b', _re.IGNORECASE),
     _re.compile(r'\bprunes\b', _re.IGNORECASE),
     _re.compile(r'\bplum\b', _re.IGNORECASE),
@@ -66,19 +77,27 @@ def _is_forbidden(term: str) -> bool:
     return any(p.search(term) for p in _FORBIDDEN_PATTERNS)
 
 SOFT_PENALTY_WEIGHTS = {
-    "protein_below_target":        10,
-    "fish_count_below_2":          15,
-    "omega3_count_below_2":        15,
-    "legume_count_below_3":        15,
-    "red_meat_above_2":            10,
-    "low_snack_coverage":          10,
-    "snack_recipe_repeated":        5,
-    "dinner_repeated_week3_4":     20,
-    "breakfast_repeated_week3_4":  10,
-    "consecutive_same_protein":    12,
-    "same_breakfast_consecutive":   8,
-    "low_lunch_variety":           10,
-    "low_breakfast_variety":       10,
+    # Nutrition — per family member per meal
+    "protein_below_target":         10,  # avg dinner protein < 22g/serving
+    "low_breakfast_protein":         8,  # < 3 breakfasts with ≥12g protein
+    "low_fiber_breakfasts":          8,  # < 2 breakfasts with fiber ≥5g (wife LDL / soluble fiber)
+    # Family health signals
+    "low_ldl_support_coverage":     10,  # < 6 meals flagged omega3 + legume + highFiber (wife)
+    "low_child_dairy_coverage":      8,  # < 3 days with at least one dairy meal (child calcium)
+    # Food-group counts
+    "fish_count_below_2":           15,
+    "omega3_count_below_2":         15,
+    "legume_count_below_3":         15,
+    "red_meat_above_2":             10,
+    "low_snack_coverage":           10,
+    "snack_recipe_repeated":         5,
+    # Variety / repetition
+    "dinner_repeated_week3_4":      20,
+    "breakfast_repeated_week3_4":   10,
+    "consecutive_same_protein":     12,
+    "same_breakfast_consecutive":    8,
+    "low_lunch_variety":            10,
+    "low_breakfast_variety":        10,
 }
 
 
@@ -297,6 +316,54 @@ def score_plan(candidate: dict, recipes_by_id: dict, ingredient_map: dict,
     for day, rid in breakfasts.items():
         if rid in soft_exclude:
             soft("breakfast_repeated_week3_4")
+
+    # ── Nutrition targets ────────────────────────────────────────────────────
+    # Average dinner protein ≥ 22g/serving (adult protein floor)
+    dinner_rids = list(dinners.values())
+    if dinner_rids:
+        avg_dinner_protein = sum(
+            recipes_by_id.get(rid, {}).get("nutrition", {}).get("proteinG", 0)
+            for rid in dinner_rids
+        ) / len(dinner_rids)
+        if avg_dinner_protein < 22:
+            soft("protein_below_target")
+
+    # Breakfasts with protein ≥ 12g — need at least 3 per week
+    high_protein_bfasts = sum(
+        1 for rid in breakfasts.values()
+        if recipes_by_id.get(rid, {}).get("nutrition", {}).get("proteinG", 0) >= 12
+    )
+    if high_protein_bfasts < 3:
+        soft("low_breakfast_protein")
+
+    # High-fiber breakfasts (fiber ≥ 5g) — need at least 2 per week (wife LDL support)
+    hifi_bfasts = sum(
+        1 for rid in breakfasts.values()
+        if recipes_by_id.get(rid, {}).get("nutrition", {}).get("fiberG", 0) >= 5
+    )
+    if hifi_bfasts < 2:
+        soft("low_fiber_breakfasts")
+
+    # ── Family health signals ────────────────────────────────────────────────
+    # LDL support: count meals with omega3 OR legumes OR highFiber flag (wife)
+    ldl_support_meals = sum(
+        1 for rid in all_this_week
+        if (recipes_by_id.get(rid, {}).get("flags", {}).get("containsOmega3Fish") or
+            recipes_by_id.get(rid, {}).get("flags", {}).get("containsLegumes") or
+            recipes_by_id.get(rid, {}).get("flags", {}).get("highFiber"))
+    )
+    if ldl_support_meals < 6:
+        soft("low_ldl_support_coverage")
+
+    # Child calcium: at least 3 days where breakfast, dinner, or snack contains dairy
+    dairy_days = set()
+    for day in all_days_sorted:
+        for slot in [breakfasts.get(day), dinners.get(day), snacks.get(day)]:
+            if slot and recipes_by_id.get(slot, {}).get("flags", {}).get("containsDairy"):
+                dairy_days.add(day)
+                break
+    if len(dairy_days) < 3:
+        soft("low_child_dairy_coverage")
 
     # Compute total score
     total_penalty = sum(soft_penalties.values())
