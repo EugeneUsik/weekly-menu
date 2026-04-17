@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-05",
+  "updatedAt": "2026-04-17",
   "ingredients": {
     "salmon_fillet": {
       "id": "salmon_fillet",
@@ -169,6 +169,19 @@
         "plain yogurt"
       ],
       "barboraResolved": true
+    },
+    "greek_yogurt": {
+      "id": "greek_yogurt",
+      "nameEn": "Greek yogurt",
+      "nameRu": "Греческий йогурт",
+      "nameLt": "Graikiškas jogurtas",
+      "category": "dairy",
+      "defaultUnit": "g",
+      "aliases": [
+        "йогурт греческий",
+        "greek yoghurt"
+      ],
+      "barboraResolved": false
     },
     "cottage_cheese": {
       "id": "cottage_cheese",
@@ -560,6 +573,206 @@
         "мука пшеничная",
         "мука",
         "flour"
+      ],
+      "barboraResolved": false
+    },
+    "semolina": {
+      "id": "semolina",
+      "nameEn": "semolina",
+      "nameRu": "Манная крупа",
+      "nameLt": "Manų kruopos",
+      "category": "grains",
+      "defaultUnit": "g",
+      "aliases": [
+        "манка"
+      ],
+      "barboraResolved": false
+    },
+    "fruit_jam": {
+      "id": "fruit_jam",
+      "nameEn": "fruit jam",
+      "nameRu": "Варенье",
+      "nameLt": "Uogienė",
+      "category": "pantry",
+      "defaultUnit": "g",
+      "aliases": [
+        "джем",
+        "конфитюр"
+      ],
+      "barboraResolved": false
+    },
+    "sugar": {
+      "id": "sugar",
+      "nameEn": "sugar",
+      "nameRu": "Сахар",
+      "nameLt": "Cukrus",
+      "category": "pantry",
+      "defaultUnit": "g",
+      "aliases": [
+        "сахар белый"
+      ],
+      "barboraResolved": false
+    },
+    "ricotta": {
+      "id": "ricotta",
+      "nameEn": "ricotta",
+      "nameRu": "Рикотта",
+      "nameLt": "Rikota",
+      "category": "dairy",
+      "defaultUnit": "g",
+      "aliases": [
+        "рикотта"
+      ],
+      "barboraResolved": false
+    },
+    "cinnamon": {
+      "id": "cinnamon",
+      "nameEn": "cinnamon",
+      "nameRu": "Корица молотая",
+      "nameLt": "Cinamonas",
+      "category": "pantry",
+      "defaultUnit": "tsp",
+      "aliases": [
+        "корица"
+      ],
+      "barboraResolved": false
+    },
+    "pasta": {
+      "id": "pasta",
+      "nameEn": "pasta",
+      "nameRu": "Макароны",
+      "nameLt": "Makaronai",
+      "category": "grains",
+      "defaultUnit": "g",
+      "aliases": [
+        "спагетти",
+        "пенне",
+        "фарфалле"
+      ],
+      "barboraResolved": false
+    },
+    "canned_tuna": {
+      "id": "canned_tuna",
+      "nameEn": "canned tuna",
+      "nameRu": "Тунец консервированный",
+      "nameLt": "Konservuotas tunas",
+      "category": "fish",
+      "defaultUnit": "g",
+      "aliases": [
+        "тунец в масле",
+        "тунец в собственном соку"
+      ],
+      "barboraResolved": false
+    },
+    "canned_sardines": {
+      "id": "canned_sardines",
+      "nameEn": "canned sardines",
+      "nameRu": "Сардины консервированные",
+      "nameLt": "Konservuotos sardinės",
+      "category": "fish",
+      "defaultUnit": "g",
+      "aliases": [
+        "сардины в масле"
+      ],
+      "barboraResolved": false
+    },
+    "potato": {
+      "id": "potato",
+      "nameEn": "potato",
+      "nameRu": "Картофель",
+      "nameLt": "Bulvė",
+      "category": "produce",
+      "defaultUnit": "g",
+      "aliases": [
+        "картошка",
+        "картофель отварной"
+      ],
+      "barboraResolved": false
+    },
+    "smoked_paprika": {
+      "id": "smoked_paprika",
+      "nameEn": "smoked paprika",
+      "nameRu": "Паприка копчёная",
+      "nameLt": "Rūkyta paprika",
+      "category": "pantry",
+      "defaultUnit": "tsp",
+      "aliases": [
+        "паприка"
+      ],
+      "barboraResolved": false
+    },
+    "egg_noodles": {
+      "id": "egg_noodles",
+      "nameEn": "egg noodles",
+      "nameRu": "Лапша яичная",
+      "nameLt": "Kiaušinių makaronai",
+      "category": "grains",
+      "defaultUnit": "g",
+      "aliases": [
+        "лапша",
+        "вермишель"
+      ],
+      "barboraResolved": false
+    },
+    "fresh_dill": {
+      "id": "fresh_dill",
+      "nameEn": "fresh dill",
+      "nameRu": "Укроп свежий",
+      "nameLt": "Šviežios krapai",
+      "category": "produce",
+      "defaultUnit": "g",
+      "aliases": [
+        "укроп"
+      ],
+      "barboraResolved": false
+    },
+    "mushrooms": {
+      "id": "mushrooms",
+      "nameEn": "mushrooms (champignons)",
+      "nameRu": "Шампиньоны",
+      "nameLt": "Pievagrybiai",
+      "category": "produce",
+      "defaultUnit": "g",
+      "aliases": [
+        "грибы шампиньоны",
+        "шампиньоны свежие"
+      ],
+      "barboraResolved": false
+    },
+    "beetroot": {
+      "id": "beetroot",
+      "nameEn": "beetroot",
+      "nameRu": "Свёкла",
+      "nameLt": "Burokėlis",
+      "category": "produce",
+      "defaultUnit": "g",
+      "aliases": [
+        "свекла",
+        "буряк"
+      ],
+      "barboraResolved": false
+    },
+    "cucumber": {
+      "id": "cucumber",
+      "nameEn": "cucumber",
+      "nameRu": "Огурец",
+      "nameLt": "Agurkas",
+      "category": "produce",
+      "defaultUnit": "pcs",
+      "aliases": [
+        "огурцы свежие"
+      ],
+      "barboraResolved": false
+    },
+    "pear": {
+      "id": "pear",
+      "nameEn": "pear",
+      "nameRu": "Груша",
+      "nameLt": "Kriaušė",
+      "category": "produce",
+      "defaultUnit": "pcs",
+      "aliases": [
+        "груши"
       ],
       "barboraResolved": false
     }
